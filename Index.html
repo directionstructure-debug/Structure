@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRUCTURE — Accompagnement Structurant</title>
+<meta name="description" content="STRUCTURE est un accompagnement structurant — exigeant, personnalisé, ancré dans le réel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0E0C0A;--card:#1A1714;--raised:#211E1A;
+  --border:#2E2A26;--muted:#6B635C;--gray:#9A9088;
+  --body:#D0C9C0;--heading:#EDE8E1;
+  --gold:#B8943A;--gold-l:#D4AA50;
+  --gold-d:rgba(184,148,58,.1);--gold-b:rgba(184,148,58,.22);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--body);font-family:'DM Sans',sans-serif;font-weight:300;font-size:17px;line-height:1.8;overflow-x:hidden}
+nav{padding:22px 0;border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(14,12,10,.96);backdrop-filter:blur(16px);z-index:100}
+.ni{max-width:960px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Cormorant Garamond',serif;font-size:19px;letter-spacing:5px;color:var(--heading);text-transform:uppercase}
+.cta-nav{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-b);padding:9px 18px;text-decoration:none;transition:background .2s}
+.cta-nav:hover{background:var(--gold-d)}
+.w{max-width:960px;margin:0 auto;padding:0 32px}
+.wn{max-width:740px;margin:0 auto;padding:0 32px}
+.hero{padding:112px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-120px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(184,148,58,.07) 0%,transparent 65%);pointer-events:none}
+.ek{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;display:flex;align-items:center;gap:14px}
+.ek::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,9vw,106px);font-weight:300;line-height:.97;letter-spacing:-1px;color:var(--heading);margin-bottom:32px}
+h1 em{font-style:italic;color:var(--gold-l)}
+.hs{font-size:18px;color:var(--body);max-width:520px;line-height:1.7;margin-bottom:52px}
+.hs strong{color:var(--heading);font-weight:500}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--gold);color:#0E0C0A;padding:16px 34px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;font-weight:500;transition:background .25s,gap .25s}
+.btn:hover{background:var(--gold-l);gap:22px}
+.hfn{margin-top:18px;font-size:13px;color:var(--muted);font-style:italic}
+hr{border:none;border-top:1px solid var(--border)}
+section{padding:96px 0}
+.sk{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.sk.g{color:var(--gold)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:300;line-height:1.15;color:var(--heading);margin-bottom:18px;letter-spacing:-.5px}
+h2 em{font-style:italic;color:var(--gold-l)}
+.si{font-size:16px;color:var(--body);max-width:540px;line-height:1.8;margin-bottom:52px}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.ci{background:var(--card);padding:40px 32px;transition:background .3s}
+.ci:hover{background:var(--raised)}
+.cn{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--gold);opacity:.18;line-height:1;margin-bottom:18px}
+.ct{font-size:16px;color:var(--body);line-height:1.7}
+.ct strong{color:var(--heading);font-weight:500}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:8px}
+.ph{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding-bottom:14px;margin-bottom:22px;border-bottom:1px solid var(--border)}
+.ph.not{color:var(--muted)}
+.ph.yes{color:var(--gold);border-color:var(--gold-b)}
+.pl{list-style:none;display:flex;flex-direction:column;gap:13px}
+.pl li{font-size:16px;color:var(--body);padding-left:20px;position:relative;line-height:1.6}
+.pl.not li::before{content:'—';position:absolute;left:0;color:var(--muted)}
+.pl.yes li::before{content:'→';position:absolute;left:0;color:var(--gold)}
+.pq{margin:68px 0;padding:52px 64px;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold)}
+.pqt{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,29px);font-weight:300;color:var(--heading);line-height:1.5;font-style:italic}
+.pqt strong{font-style:normal;font-weight:500}
+.ag{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.ax{background:var(--card);padding:28px 18px;transition:background .3s}
+.ax:hover{background:var(--raised)}
+.am{width:24px;height:1px;background:var(--gold);opacity:.5;margin-bottom:16px}
+.at{font-size:13px;font-weight:500;color:var(--heading);margin-bottom:8px;line-height:1.4}
+.ad{font-size:12px;color:var(--gray);line-height:1.6}
+.pr{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border)}
+.pp{background:var(--card);padding:40px 44px;display:grid;grid-template-columns:150px 1fr 110px;gap:36px;align-items:start;transition:background .3s}
+.pp:hover{background:var(--raised)}
+.ptag{font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;padding-top:3px}
+.pstep{font-size:11px;color:var(--muted);margin-top:5px;letter-spacing:1px}
+.pname{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--heading);margin-bottom:10px}
+.pdesc{font-size:15px;color:var(--body);line-height:1.75}
+.pbadge{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:5px 9px;height:fit-content;text-align:center;white-space:nowrap}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
+.wc{background:var(--card);padding:40px 36px}
+.wh{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding-bottom:14px;margin-bottom:24px;border-bottom:1px solid var(--border)}
+.wh.yes{color:var(--gold);border-color:var(--gold-b)}
+.wh.no{color:var(--muted)}
+.wl{list-style:none;display:flex;flex-direction:column;gap:13px}
+.wl li{font-size:15px;color:var(--body);padding-left:22px;position:relative;line-height:1.6}
+.wl.yes li::before{content:'–';position:absolute;left:0;color:var(--gold)}
+.wl.no li::before{content:'×';position:absolute;left:0;color:var(--muted);top:2px;font-size:13px}
+.ng{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.nv{background:var(--card);padding:40px 32px;display:flex;flex-direction:column;transition:background .3s}
+.nv:hover{background:var(--raised)}
+.nn{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;color:var(--gold);opacity:.14;line-height:1;margin-bottom:14px}
+.nname{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--heading);margin-bottom:18px}
+.nl{list-style:none;flex:1;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.nl li{font-size:14px;color:var(--body);padding-left:16px;position:relative;line-height:1.5}
+.nl li::before{content:'—';position:absolute;left:0;color:var(--muted)}
+.np{font-family:'DM Mono',monospace;font-size:12px;color:var(--gold);padding-top:18px;border-top:1px solid var(--border);letter-spacing:1px}
+.wme{padding:88px 0;background:var(--raised);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.wmei{display:grid;grid-template-columns:1fr 1fr;gap:68px;align-items:center}
+.wmeq{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,38px);font-weight:300;font-style:italic;color:var(--heading);line-height:1.4}
+.wmeq strong{font-style:normal;font-weight:500}
+.wmet{font-size:16px;color:var(--body);line-height:1.85}
+.wmet p+p{margin-top:16px}
+.cs{padding:120px 0;text-align:center;position:relative;overflow:hidden}
+.cs::before{content:'';position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(184,148,58,.06) 0%,transparent 60%);pointer-events:none}
+.ck{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.ct2{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,92px);font-weight:300;line-height:1.05;color:var(--heading);margin-bottom:24px;letter-spacing:-1px}
+.ct2 em{font-style:italic;color:var(--gold-l)}
+.csub{font-size:17px;color:var(--body);max-width:420px;margin:0 auto 48px;line-height:1.75}
+.cnote{margin-top:18px;font-size:13px;color:var(--muted);font-style:italic}
+.legal{padding:52px 0;border-top:1px solid var(--border)}
+.lt{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:18px}
+.lb{font-size:12px;color:var(--muted);line-height:1.9;max-width:800px}
+footer{padding:34px 0;border-top:1px solid var(--border)}
+.fi{max-width:960px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:center}
+.fl{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:4px;color:var(--muted);text-transform:uppercase}
+.fr{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;text-align:right;line-height:1.8}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.r{animation:rise .8s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.44s}
+@media(max-width:768px){
+  .w,.wn{padding:0 20px}
+  .ni{padding:0 20px}
+  h1{font-size:48px}
+  .cg,.pg,.wg,.ng{grid-template-columns:1fr}
+  .ag{grid-template-columns:1fr 1fr}
+  .pp{grid-template-columns:1fr;gap:10px;padding:28px 22px}
+  .pbadge{display:none}
+  .wmei{grid-template-columns:1fr;gap:36px}
+  .pq{padding:36px 28px}
+  .fi{flex-direction:column;gap:12px;text-align:center}
+  .fr{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="ni">
+    <div class="logo">Structure</div>
+    <a href="#diagnostic" class="cta-nav">Diagnostic gratuit</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="w">
+    <div class="ek r">Accompagnement structurant</div>
+    <h1 class="r d1">Remettre<br>de l'ordre<br>dans <em>ta vie.</em></h1>
+    <p class="hs r d2">Pas des conseils. Pas de la motivation.<br><strong>Un protocole construit pour toi, appliqué avec toi, ancré dans ta réalité quotidienne.</strong></p>
+    <a href="#diagnostic" class="btn r d3">Demander un diagnostic <span>→</span></a>
+    <p class="hfn r d4">Appel de 60 à 90 min. Gratuit. Sans engagement avant cet échange.</p>
+  </div>
+</div>
+
+<hr>
+
+<section>
+  <div class="w">
+    <div class="sk">Le constat</div>
+    <h2>Tu sais ce que<br>tu devrais faire.</h2>
+    <p class="si">Le problème n'est pas le manque d'information. C'est l'absence de structure pour transformer ce que tu sais en ce que tu fais réellement — chaque jour.</p>
+    <div class="cg">
+      <div class="ci"><div class="cn">01</div><div class="ct"><strong>Tu recommences les mêmes schémas.</strong> Tu le sais. Tu le refais quand même. Ce n'est pas un problème de volonté — c'est un problème de cadre.</div></div>
+      <div class="ci"><div class="cn">02</div><div class="ct"><strong>Tu as déjà essayé seul.</strong> Les apps, les livres, les résolutions. Ça tient quelques jours. Puis rien. Il te faut quelqu'un qui structure et qui ne lâche pas.</div></div>
+      <div class="ci"><div class="cn">03</div><div class="ct"><strong>Tu fonctionnes, mais en mode dégradé.</strong> Pas en crise totale — juste en dessous de ce que tu pourrais être. Depuis trop longtemps.</div></div>
+      <div class="ci"><div class="cn">04</div><div class="ct"><strong>Tu ne cherches pas à être motivé.</strong> Tu cherches quelqu'un qui structure concrètement, qui exige, et qui s'assure que ça tient.</div></div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="w">
+    <div class="sk g">Ce qu'est STRUCTURE</div>
+    <h2>Ni thérapie.<br>Ni coaching.<br><em>Autre chose.</em></h2>
+    <div class="pg">
+      <div>
+        <div class="ph not">Ce que tu trouveras ailleurs</div>
+        <ul class="pl not">
+          <li>Des séances pour parler de tes problèmes</li>
+          <li>Des outils à appliquer seul, sans suivi</li>
+          <li>De la motivation qui s'évapore en 48h</li>
+          <li>Quelqu'un qui valide tous tes choix</li>
+          <li>Des formations à regarder sans appliquer</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ph yes">Ce que tu trouveras ici</div>
+        <ul class="pl yes">
+          <li>Un diagnostic précis de ton déséquilibre réel</li>
+          <li>Un protocole personnalisé que tu dois appliquer</li>
+          <li>Un suivi régulier avec accountability véritable</li>
+          <li>Quelqu'un qui challenge, pas qui encourage</li>
+          <li>Une intervention dans ta réalité si nécessaire</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pq">
+      <p class="pqt">Tu ne paies pas pour être écouté.<br>Tu paies pour que <strong>la distance entre ce que tu veux faire et ce que tu fais réellement</strong> se réduise — concrètement, durablement.</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="w">
+    <div class="sk">Les domaines d'intervention</div>
+    <h2>Un seul problème.<br><em>Cinq manifestations.</em></h2>
+    <p class="si">Ces cinq axes ne sont pas cinq offres séparées. Ils sont les symptômes d'un même déséquilibre : l'absence de structure personnelle.</p>
+    <div class="ag">
+      <div class="ax"><div class="am"></div><div class="at">Désorganisation chronique</div><div class="ad">Pas de routine stable, journées subies, absence de repères concrets</div></div>
+      <div class="ax"><div class="am"></div><div class="at">Habitudes problématiques</div><div class="ad">Comportements compulsifs non cliniques que tu répètes malgré toi</div></div>
+      <div class="ax"><div class="am"></div><div class="at">Agitation mentale</div><div class="ad">Pensées dispersées, difficulté à tenir une direction, surcharge cognitive</div></div>
+      <div class="ax"><div class="am"></div><div class="at">Dégradation physique</div><div class="ad">Sommeil, alimentation, énergie — laissés progressivement à la dérive</div></div>
+      <div class="ax"><div class="am"></div><div class="at">Isolement & manque de cadre</div><div class="ad">Absence d'environnement structurant, repli progressif sur soi</div></div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="w">
+    <div class="sk">Comment ça fonctionne</div>
+    <h2>Ce qui se passe<br><em>concrètement.</em></h2>
+    <div class="pr">
+      <div class="pp">
+        <div><div class="ptag">Phase 01</div><div class="pstep">Session initiale</div></div>
+        <div><div class="pname">Diagnostic</div><div class="pdesc">60 à 90 minutes. On cartographie ta situation réelle — habitudes, environnement, déclencheurs, niveau de déséquilibre. À l'issue : soit tu es pris en charge, soit tu es orienté vers le bon professionnel.</div></div>
+        <div class="pbadge">Visio</div>
+      </div>
+      <div class="pp">
+        <div><div class="ptag">Phase 02</div><div class="pstep">Semaines 1 à 4</div></div>
+        <div><div class="pname">Structuration</div><div class="pdesc">Un protocole construit pour toi : routine, règles non négociables, contraintes choisies. Suivi hebdomadaire, messagerie 5j/7, reporting quotidien. Tu appliques. On ajuste. Le protocole vit avec toi.</div></div>
+        <div class="pbadge">1 visio / sem.</div>
+      </div>
+      <div class="pp">
+        <div><div class="ptag">Phase 03</div><div class="pstep">Si nécessaire</div></div>
+        <div><div class="pname">Renforcement</div><div class="pdesc">Activé si tu stagnes ou si l'intensité doit monter. 2 visios par semaine, suivi quotidien structuré, travail approfondi sur les comportements résistants.</div></div>
+        <div class="pbadge">2 visios / sem.</div>
+      </div>
+      <div class="pp">
+        <div><div class="ptag">Phase 04</div><div class="pstep">Option avancée</div></div>
+        <div><div class="pname">Intervention terrain</div><div class="pdesc">Intervention ponctuelle dans ton lieu de vie. Observer, corriger, restructurer l'environnement physique. Toujours sur consentement écrit explicite.</div></div>
+        <div class="pbadge">Présentiel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="w">
+    <div class="sk">Sélection stricte</div>
+    <h2>Pour qui.<br><em>Pour qui pas.</em></h2>
+    <p class="si">STRUCTURE n'est pas fait pour tout le monde. La sélection est non négociable — pour ton intérêt et pour l'efficacité du travail.</p>
+    <div class="wg">
+      <div class="wc">
+        <div class="wh yes">C'est fait pour toi si</div>
+        <ul class="wl yes">
+          <li>Tu as entre 20 et 45 ans, tu fonctionnes, mais tu es en déséquilibre chronique</li>
+          <li>Tu es conscient du problème et tu as déjà tenté de t'en sortir seul</li>
+          <li>Tu cherches quelqu'un qui structure et exige, pas qui encourage</li>
+          <li>Tu es prêt à appliquer un protocole contraignant</li>
+          <li>Tu as besoin d'accountability réelle, pas de validation émotionnelle</li>
+        </ul>
+      </div>
+      <div class="wc" style="background:var(--bg)">
+        <div class="wh no">Ce n'est pas fait pour toi si</div>
+        <ul class="wl no">
+          <li>Tu souffres de troubles psychiatriques diagnostiqués ou d'une dépendance sévère nécessitant un suivi médical</li>
+          <li>Tu cherches un thérapeute, un médecin ou un accompagnement social</li>
+          <li>Tu veux être encouragé et validé dans tes choix actuels</li>
+          <li>Tu n'es pas prêt à appliquer — juste à écouter</li>
+          <li>Tu traverses une crise médicale ou psychiatrique active</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section>
+  <div class="w">
+    <div class="sk">Les formules</div>
+    <h2>Un niveau.<br><em>Choisi ensemble.</em></h2>
+    <p class="si">Le niveau est déterminé à l'issue du diagnostic. La tarification est définie à l'issue de cet échange — pas avant.</p>
+    <div class="ng">
+      <div class="nv">
+        <div class="nn">01</div>
+        <div class="nname">Base</div>
+        <ul class="nl">
+          <li>Diagnostic complet</li>
+          <li>Protocole personnalisé</li>
+          <li>1 visio par semaine</li>
+          <li>Messagerie 5 jours / 7</li>
+          <li>Suivi & ajustements continus</li>
+          <li>Session de clôture</li>
+        </ul>
+        <div class="np">Tarification sur devis — à l'issue du diagnostic</div>
+      </div>
+      <div class="nv" style="background:var(--raised)">
+        <div class="nn">02</div>
+        <div class="nname">Renforcé</div>
+        <ul class="nl">
+          <li>Tout le Niveau 1</li>
+          <li>2 visios par semaine</li>
+          <li>Suivi quotidien structuré</li>
+          <li>Travail comportemental approfondi</li>
+          <li>Accountability renforcée</li>
+        </ul>
+        <div class="np">Tarification sur devis — à l'issue du diagnostic</div>
+      </div>
+      <div class="nv">
+        <div class="nn">03</div>
+        <div class="nname">Terrain</div>
+        <ul class="nl">
+          <li>Tout le Niveau 2</li>
+          <li>Intervention(s) en lieu de vie</li>
+          <li>Restructuration environnement physique</li>
+          <li>Consentement écrit par intervention</li>
+          <li>France & Belgique</li>
+        </ul>
+        <div class="np">Tarification sur devis — à l'issue du diagnostic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wme">
+  <div class="w">
+    <div class="wmei">
+      <div class="wmeq">"Je ne suis pas un expert en théorie. Je suis quelqu'un qui a <strong>traversé le désordre</strong> et qui en est sorti par la structure."</div>
+      <div class="wmet">
+        <p>Ce que je propose n'est pas né d'une formation ou d'un cursus. Il est né d'une expérience vécue — celle de comprendre de l'intérieur ce que signifie fonctionner en mode dégradé pendant des années, et de trouver les leviers qui changent réellement les choses.</p>
+        <p>Ce que j'ai appris : la volonté ne suffit jamais seule. Ce qui change tout, c'est un cadre externe, exigeant et personnalisé — quelqu'un qui ne te laisse pas te dérober à ce que tu as dit vouloir faire.</p>
+        <p>C'est exactement ce que je construis avec chaque client.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="cs" id="diagnostic">
+  <div class="w">
+    <div class="ck">Prochaine étape</div>
+    <h2 class="ct2">Diagnostic<br><em>gratuit.</em></h2>
+    <p class="csub">60 à 90 minutes pour analyser ta situation réellement. Pas un argumentaire de vente — un diagnostic honnête. À l'issue : soit un protocole, soit une orientation vers mieux adapté.</p>
+    <a href="REMPLACER_PAR_LIEN_TYPEFORM" class="btn">Demander mon diagnostic <span>→</span></a>
+    <p class="cnote">Formulaire de pré-qualification requis avant l'appel. Places limitées.</p>
+  </div>
+</section>
+
+<div class="legal">
+  <div class="wn">
+    <div class="lt">Informations légales</div>
+    <p class="lb">STRUCTURE est un service d'accompagnement structurant non médical. Il ne constitue pas un acte de soins, une thérapie, un suivi psychologique ou psychiatrique, ni une formation professionnelle au sens légal du terme. L'Accompagnateur STRUCTURE n'est pas un professionnel de santé au sens du Code de la santé publique français (art. L4161-1) ni de la loi belge du 10 mai 2015. Tout accompagnement est conditionné à la signature préalable d'un contrat de prestation de service privé. Données personnelles traitées conformément au RGPD (UE 2016/679) — contact : contact@structure.expert</p>
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <div class="fl">Structure</div>
+    <div class="fr">structure.expert<br>France & Belgique — 2025<br>contact@structure.expert</div>
+  </div>
+</footer>
+
+</body>
+</html>
