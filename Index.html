@@ -4,79 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STRUCTURE — Reprendre le contrôle de sa vie</title>
-<meta name="description" content="STRUCTURE est un accompagnement structurant. Ce que tu ne tiens pas seul devient tenable avec un cadre.">
+<meta name="description" content="STRUCTURE est un cadre humain de stabilisation personnelle. Ce que tu ne tiens pas seul devient tenable avec un cadre.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --black: #0B0B0B;
-  --black-2: #111111;
-  --black-3: #1A1A1A;
-  --border: #242424;
-  --border-l: #2E2E2E;
-  --muted: #5A5A5A;
-  --gray: #888888;
-  --body: #C8C4BE;
-  --heading: #F0ECE6;
-  --white: #F5F2ED;
-  --accent: #7A9BA8;
-  --accent-d: rgba(122,155,168,.1);
-  --accent-b: rgba(122,155,168,.2);
+  --bg:       #111111;
+  --bg-2:     #161616;
+  --bg-3:     #1C1C1C;
+  --border:   #222222;
+  --border-l: #2A2A2A;
+  --muted:    #555555;
+  --soft:     #B8B8B8;
+  --body:     #C8C4BE;
+  --heading:  #F5F3EF;
+  --accent:   #5C6B62;
+  --accent-l: #6E8077;
+  --accent-d: rgba(92,107,98,.1);
+  --accent-b: rgba(92,107,98,.2);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--black);
+  background: var(--bg);
   color: var(--body);
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.9;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 /* ── LAYOUT ── */
-.w  { max-width: 960px;  margin: 0 auto; padding: 0 48px; }
-.wm { max-width: 720px;  margin: 0 auto; padding: 0 48px; }
-.ws { max-width: 560px;  margin: 0 auto; padding: 0 48px; }
+.w  { max-width: 980px; margin: 0 auto; padding: 0 52px; }
+.wm { max-width: 700px; margin: 0 auto; padding: 0 52px; }
+.ws { max-width: 520px; margin: 0 auto; padding: 0 52px; }
 
 /* ── NAV ── */
 nav {
   padding: 28px 0;
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0;
-  background: rgba(11,11,11,.97);
+  background: rgba(17,17,17,.97);
   backdrop-filter: blur(24px);
   z-index: 100;
 }
 .nav-in {
-  max-width: 960px; margin: 0 auto; padding: 0 48px;
+  max-width: 980px; margin: 0 auto; padding: 0 52px;
   display: flex; justify-content: space-between; align-items: center;
 }
 .nav-logo {
   font-family: 'Inter', sans-serif;
-  font-size: 13px; font-weight: 500;
-  letter-spacing: 6px; text-transform: uppercase;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 7px; text-transform: uppercase;
   color: var(--heading);
 }
 .nav-cta {
-  font-size: 12px; font-weight: 400;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--accent);
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--accent-l);
   border: 1px solid var(--accent-b);
-  padding: 10px 22px;
+  padding: 10px 24px;
   text-decoration: none;
-  transition: background .25s, color .25s;
+  transition: background .25s;
 }
 .nav-cta:hover { background: var(--accent-d); }
 
 /* ── HERO ── */
 .hero {
-  padding: 160px 0 140px;
+  padding: 168px 0 148px;
   position: relative; overflow: hidden;
 }
 .hero::after {
@@ -87,66 +87,69 @@ nav {
 .hero-label {
   font-size: 11px; font-weight: 400;
   letter-spacing: 4px; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 48px;
-  display: flex; align-items: center; gap: 16px;
+  color: var(--accent); margin-bottom: 56px;
+  display: flex; align-items: center; gap: 18px;
 }
 .hero-label::before {
   content: ''; display: block;
-  width: 32px; height: 1px; background: var(--accent);
+  width: 28px; height: 1px; background: var(--accent);
 }
 .hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(64px, 9vw, 112px);
-  font-weight: 400; line-height: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(68px, 9.5vw, 116px);
+  font-weight: 300; line-height: .96;
   letter-spacing: -2px; color: var(--heading);
-  margin-bottom: 48px;
+  margin-bottom: 52px;
 }
 .hero-title em { font-style: italic; }
-.hero-tension {
-  font-size: 19px; font-weight: 300;
-  color: var(--body); max-width: 480px;
-  line-height: 1.7; margin-bottom: 16px;
+.hero-main {
+  font-size: 20px; font-weight: 300;
+  color: var(--body); max-width: 460px;
+  line-height: 1.7; margin-bottom: 20px;
 }
 .hero-human {
   font-size: 16px; font-weight: 300;
-  color: var(--muted); max-width: 420px;
-  line-height: 1.85; margin-bottom: 56px;
-  font-style: italic;
+  color: var(--soft); max-width: 420px;
+  line-height: 1.9; margin-bottom: 60px;
 }
-.hero-human strong { color: var(--body); font-style: normal; font-weight: 300; }
+.hero-human strong {
+  color: var(--body); font-weight: 300;
+  display: block; margin-top: 8px;
+}
 .btn {
-  display: inline-flex; align-items: center; gap: 12px;
-  background: var(--heading); color: var(--black);
-  padding: 16px 36px;
-  font-size: 12px; font-weight: 500;
-  letter-spacing: 2px; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 14px;
+  background: var(--heading); color: var(--bg);
+  padding: 17px 38px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 2.5px; text-transform: uppercase;
   text-decoration: none;
   transition: background .2s, gap .25s;
 }
-.btn:hover { background: var(--white); gap: 20px; }
-.hero-sub {
-  margin-top: 20px; font-size: 12px;
+.btn:hover { background: #E8E4DE; gap: 22px; }
+.hero-note {
+  margin-top: 18px; font-size: 12px;
   color: var(--muted); font-style: italic;
 }
 
-/* ── DIVIDERS ── */
+/* ── DIVIDER ── */
 .line { border: none; border-top: 1px solid var(--border); }
 
 /* ── SECTIONS ── */
-.section { padding: 128px 0; }
-.section-sm { padding: 96px 0; }
+.sec { padding: 136px 0; }
+.sec-sm { padding: 96px 0; }
 
 .label {
-  font-size: 11px; font-weight: 400;
+  font-size: 10px; font-weight: 400;
   letter-spacing: 4px; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 28px;
+  color: var(--muted); margin-bottom: 32px;
 }
 .label.acc { color: var(--accent); }
 
 h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 400; line-height: 1.12;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 300; line-height: 1.1;
   color: var(--heading); margin-bottom: 28px;
   letter-spacing: -1px;
 }
@@ -154,323 +157,332 @@ h2 em { font-style: italic; }
 
 .intro {
   font-size: 17px; font-weight: 300;
-  color: var(--body); max-width: 500px;
-  line-height: 1.85; margin-bottom: 72px;
+  color: var(--body); max-width: 480px;
+  line-height: 1.9; margin-bottom: 80px;
 }
 
 /* ── IDENTIFICATION ── */
-.ident {
+.ident-wrap {
   display: flex; flex-direction: column;
-  gap: 32px; max-width: 560px;
+  gap: 48px;
 }
 .ident-block {
   font-size: 18px; font-weight: 300;
-  color: var(--body); line-height: 1.9;
+  color: var(--soft); line-height: 1.9;
+  max-width: 540px;
 }
-.ident-block.strong {
-  font-size: 20px; color: var(--heading);
-  font-family: 'Playfair Display', serif;
-  font-weight: 400; font-style: italic;
-  line-height: 1.6;
+.ident-block.key {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 300; font-style: italic;
+  color: var(--heading); line-height: 1.45;
+}
+.ident-relief {
+  margin-top: 16px;
+  font-size: 16px; font-weight: 300;
+  color: var(--body); font-style: normal;
+  font-family: 'Inter', sans-serif;
 }
 
-/* ── BREAK PHRASE ── */
-.break-phrase {
-  padding: 96px 0;
-  background: var(--black-2);
+/* ── INTERLUDE ── */
+.interlude {
+  padding: 112px 0;
+  background: var(--bg-2);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  text-align: center;
 }
-.bp-text {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 3.5vw, 40px);
-  font-weight: 400; font-style: italic;
+.interlude-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 300; font-style: italic;
   color: var(--heading); line-height: 1.4;
-  max-width: 640px; margin: 0 auto;
+  max-width: 680px;
+}
+.interlude-text strong {
+  font-style: normal; font-weight: 300;
+  color: var(--accent-l);
 }
 
-/* ── POSITIONNEMENT ── */
-.pos-block {
+/* ── POS GRID ── */
+.pos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
+  margin-top: 8px;
 }
 .pos-col {
-  background: var(--black);
-  padding: 52px 44px;
+  background: var(--bg);
+  padding: 56px 48px;
 }
-.pos-col.dark { background: var(--black-2); }
-.pos-col-label {
-  font-size: 11px; letter-spacing: 3px;
-  text-transform: uppercase; font-weight: 400;
-  padding-bottom: 20px; margin-bottom: 32px;
+.pos-col.shade { background: var(--bg-2); }
+.pos-col-head {
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 3.5px; text-transform: uppercase;
+  padding-bottom: 22px; margin-bottom: 36px;
   border-bottom: 1px solid var(--border);
 }
-.pos-col-label.acc { color: var(--accent); border-color: var(--accent-b); }
-.pos-col-label.mut { color: var(--muted); }
+.pos-col-head.acc {
+  color: var(--accent);
+  border-color: var(--accent-b);
+}
+.pos-col-head.mut { color: var(--muted); }
 .pos-list {
   list-style: none;
-  display: flex; flex-direction: column; gap: 18px;
+  display: flex; flex-direction: column; gap: 20px;
 }
 .pos-list li {
   font-size: 15px; color: var(--body);
-  padding-left: 20px; position: relative;
-  line-height: 1.7;
+  padding-left: 22px; position: relative;
+  line-height: 1.75;
 }
 .pos-list.yes li::before {
   content: '→'; position: absolute; left: 0;
-  color: var(--accent); font-size: 13px;
+  color: var(--accent); font-size: 12px; top: 4px;
 }
 .pos-list.no li::before {
   content: '—'; position: absolute; left: 0;
-  color: var(--muted); font-size: 13px;
+  color: var(--muted); font-size: 12px; top: 4px;
+}
+
+/* ── CITATION ── */
+.cite-block {
+  padding: 56px 52px;
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--accent);
+  margin: 80px 0;
+  background: var(--bg-2);
+}
+.cite-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300; font-style: italic;
+  color: var(--heading); line-height: 1.5;
+}
+.cite-text strong {
+  font-style: normal; font-weight: 300;
 }
 
 /* ── BENEFITS ── */
-.benefits-list {
+.ben-list {
   list-style: none;
-  display: flex; flex-direction: column; gap: 0;
   border: 1px solid var(--border);
+  overflow: hidden;
 }
-.benefit-item {
-  padding: 28px 40px;
+.ben-item {
+  padding: 32px 44px;
   border-bottom: 1px solid var(--border);
-  display: flex; align-items: baseline; gap: 20px;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 24px; align-items: baseline;
   transition: background .25s;
 }
-.benefit-item:last-child { border-bottom: none; }
-.benefit-item:hover { background: var(--black-2); }
-.benefit-num {
-  font-size: 12px; color: var(--muted);
-  font-weight: 300; min-width: 24px;
-  flex-shrink: 0;
+.ben-item:last-child { border-bottom: none; }
+.ben-item:hover { background: var(--bg-2); }
+.ben-n {
+  font-size: 11px; color: var(--muted);
+  font-weight: 300; letter-spacing: 1px;
 }
-.benefit-text {
-  font-size: 16px; color: var(--body);
-  line-height: 1.7;
-}
-.benefit-text strong { color: var(--heading); font-weight: 400; }
-.benefits-footer {
-  margin-top: 40px; padding-top: 32px;
-  border-top: 1px solid var(--border);
-  font-family: 'Playfair Display', serif;
-  font-size: 22px; font-style: italic;
-  color: var(--heading); line-height: 1.5;
+.ben-body { font-size: 16px; color: var(--body); line-height: 1.8; }
+.ben-body strong { color: var(--heading); font-weight: 400; }
+.ben-footer {
+  margin-top: 52px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-style: italic; color: var(--heading);
+  line-height: 1.5;
 }
 
 /* ── PROCESS ── */
-.process {
+.proc-list {
   display: flex; flex-direction: column;
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
 }
-.proc-item {
-  background: var(--black);
-  padding: 48px 52px;
+.proc-row {
+  background: var(--bg);
+  padding: 52px 56px;
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 48px; align-items: start;
+  grid-template-columns: 150px 1fr;
+  gap: 52px; align-items: start;
   transition: background .25s;
 }
-.proc-item:hover { background: var(--black-2); }
-.proc-left {}
-.proc-num {
-  font-size: 11px; letter-spacing: 3px;
+.proc-row:hover { background: var(--bg-2); }
+.proc-tag {
+  font-size: 10px; letter-spacing: 3px;
   text-transform: uppercase; color: var(--accent);
-  font-weight: 400; margin-bottom: 8px;
+  font-weight: 400; margin-bottom: 10px;
 }
-.proc-sub {
+.proc-period {
   font-size: 12px; color: var(--muted);
   letter-spacing: 1px;
 }
-.proc-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px; font-weight: 400;
-  color: var(--heading); margin-bottom: 14px;
+.proc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 300;
+  color: var(--heading); margin-bottom: 16px;
 }
 .proc-desc {
   font-size: 15px; color: var(--body);
-  line-height: 1.8; margin-bottom: 20px;
+  line-height: 1.85; margin-bottom: 24px;
+  max-width: 520px;
 }
-.proc-points {
+.proc-items {
   list-style: none;
-  display: flex; flex-direction: column; gap: 8px;
+  display: flex; flex-direction: column; gap: 10px;
 }
-.proc-points li {
-  font-size: 13px; color: var(--muted);
-  padding-left: 16px; position: relative;
+.proc-items li {
+  font-size: 13px; color: var(--soft);
+  padding-left: 18px; position: relative;
+  line-height: 1.6;
 }
-.proc-points li::before {
-  content: '—'; position: absolute; left: 0;
+.proc-items li::before {
+  content: '–'; position: absolute; left: 0;
   color: var(--border-l);
 }
 
 /* ── TIMELINE ── */
-.timeline {
+.tl-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
 }
-.tl-item {
-  background: var(--black);
-  padding: 44px 36px;
+.tl-col {
+  background: var(--bg);
+  padding: 48px 40px;
   transition: background .25s;
 }
-.tl-item:hover { background: var(--black-2); }
+.tl-col:hover { background: var(--bg-2); }
 .tl-period {
-  font-size: 11px; letter-spacing: 3px;
+  font-size: 10px; letter-spacing: 3.5px;
   text-transform: uppercase; color: var(--accent);
-  margin-bottom: 20px; font-weight: 400;
+  font-weight: 400; margin-bottom: 24px;
 }
 .tl-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px; font-weight: 400;
-  color: var(--heading); margin-bottom: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 300;
+  color: var(--heading); margin-bottom: 24px;
   line-height: 1.3;
 }
-.tl-list {
+.tl-items {
   list-style: none;
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex; flex-direction: column; gap: 12px;
 }
-.tl-list li {
+.tl-items li {
   font-size: 14px; color: var(--body);
-  padding-left: 16px; position: relative;
-  line-height: 1.6;
+  padding-left: 18px; position: relative;
+  line-height: 1.65;
 }
-.tl-list li::before {
+.tl-items li::before {
   content: '—'; position: absolute; left: 0;
   color: var(--muted); font-size: 12px;
 }
 
-/* ── REALITÉ ── */
-.reality {
-  padding: 96px 0;
-  background: var(--black-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.reality-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 4vw, 40px);
-  font-weight: 400; color: var(--heading);
-  line-height: 1.3; margin-bottom: 40px;
-}
-.reality-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-}
-.reality-col p {
-  font-size: 16px; color: var(--body);
-  line-height: 1.85; margin-bottom: 24px;
-}
-.reality-col p:last-child { margin-bottom: 0; }
-.reality-col p strong { color: var(--heading); font-weight: 400; }
-
 /* ── QUI JE SUIS ── */
 .who-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 96px; align-items: start;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 108px; align-items: start;
 }
-.who-quote {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 3.5vw, 36px);
-  font-weight: 400; font-style: italic;
+.who-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.8vw, 40px);
+  font-weight: 300; font-style: italic;
   color: var(--heading); line-height: 1.45;
-  position: sticky; top: 120px;
+  position: sticky; top: 128px;
 }
 .who-body {
-  display: flex; flex-direction: column; gap: 24px;
+  display: flex; flex-direction: column; gap: 28px;
 }
 .who-body p {
   font-size: 16px; color: var(--body); line-height: 1.9;
 }
-.who-body p strong { color: var(--heading); font-weight: 400; }
-.who-items {
+.who-body p strong {
+  color: var(--heading); font-weight: 400;
+}
+.who-exclu {
   list-style: none;
   display: flex; flex-direction: column; gap: 12px;
-  margin: 8px 0;
+  margin: 4px 0;
 }
-.who-items li {
-  font-size: 15px; color: var(--body);
-  padding-left: 20px; position: relative;
+.who-exclu li {
+  font-size: 15px; color: var(--soft);
+  padding-left: 22px; position: relative;
 }
-.who-items li::before {
+.who-exclu li::before {
   content: '×'; position: absolute; left: 0;
   color: var(--muted); font-size: 12px; top: 3px;
 }
 
-/* ── LIMITES ── */
-.limits {
+/* ── LIMITS ── */
+.lim-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
 }
-.limit-col {
-  background: var(--black);
-  padding: 48px 44px;
+.lim-col {
+  background: var(--bg);
+  padding: 52px 48px;
 }
-.limit-col.dark { background: var(--black-2); }
-.limit-label {
-  font-size: 11px; letter-spacing: 3px;
+.lim-col.shade { background: var(--bg-2); }
+.lim-head {
+  font-size: 10px; letter-spacing: 3.5px;
   text-transform: uppercase; font-weight: 400;
-  padding-bottom: 18px; margin-bottom: 28px;
+  padding-bottom: 20px; margin-bottom: 32px;
   border-bottom: 1px solid var(--border);
 }
-.limit-label.acc { color: var(--accent); border-color: var(--accent-b); }
-.limit-label.mut { color: var(--muted); }
-.limit-list {
+.lim-head.acc { color: var(--accent); border-color: var(--accent-b); }
+.lim-head.mut { color: var(--muted); }
+.lim-list {
   list-style: none;
-  display: flex; flex-direction: column; gap: 14px;
+  display: flex; flex-direction: column; gap: 16px;
 }
-.limit-list li {
+.lim-list li {
   font-size: 15px; color: var(--body);
-  padding-left: 20px; position: relative;
-  line-height: 1.65;
+  padding-left: 22px; position: relative;
+  line-height: 1.7;
 }
-.limit-list.yes li::before {
+.lim-list.yes li::before {
   content: '✓'; position: absolute; left: 0;
-  color: var(--accent); font-size: 11px; top: 3px;
+  color: var(--accent); font-size: 11px; top: 4px;
 }
-.limit-list.no li::before {
+.lim-list.no li::before {
   content: '×'; position: absolute; left: 0;
-  color: var(--muted); font-size: 12px; top: 2px;
+  color: var(--muted); font-size: 12px; top: 3px;
 }
 
 /* ── CTA FINAL ── */
-.cta-final {
-  padding: 160px 0;
+.cta-s {
+  padding: 168px 0;
   text-align: center;
   position: relative; overflow: hidden;
 }
-.cta-final::before {
+.cta-s::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at center bottom,
-    rgba(122,155,168,.06) 0%, transparent 60%);
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 80%,
+    rgba(92,107,98,.07) 0%, transparent 58%);
   pointer-events: none;
 }
-.cta-tension {
-  font-size: 15px; color: var(--muted);
-  letter-spacing: 1px; margin-bottom: 32px;
+.cta-pre {
+  font-size: 14px; color: var(--soft);
+  font-style: italic; margin-bottom: 20px;
+  line-height: 1.7;
 }
-.cta-main {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(52px, 8vw, 100px);
-  font-weight: 400; line-height: 1.05;
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(56px, 9vw, 108px);
+  font-weight: 300; line-height: 1.02;
   color: var(--heading); margin-bottom: 32px;
   letter-spacing: -2px;
 }
-.cta-main em { font-style: italic; }
+.cta-title em { font-style: italic; }
 .cta-body {
   font-size: 17px; color: var(--body);
-  max-width: 400px; margin: 0 auto 52px;
-  line-height: 1.8;
+  max-width: 380px; margin: 0 auto 56px;
+  line-height: 1.85;
 }
 .cta-note {
   margin-top: 20px; font-size: 12px;
@@ -479,66 +491,68 @@ h2 em { font-style: italic; }
 
 /* ── LEGAL ── */
 .legal {
-  padding: 56px 0;
+  padding: 60px 0;
   border-top: 1px solid var(--border);
 }
 .legal-label {
-  font-size: 10px; letter-spacing: 3px;
+  font-size: 10px; letter-spacing: 3.5px;
   text-transform: uppercase; color: var(--muted);
-  margin-bottom: 16px; font-weight: 400;
+  margin-bottom: 18px; font-weight: 400;
 }
 .legal-text {
   font-size: 12px; color: var(--muted);
-  line-height: 2; max-width: 800px;
+  line-height: 2.1; max-width: 780px;
 }
 
 /* ── FOOTER ── */
 footer {
-  padding: 40px 0;
+  padding: 42px 0;
   border-top: 1px solid var(--border);
 }
 .foot-in {
-  max-width: 960px; margin: 0 auto; padding: 0 48px;
+  max-width: 980px; margin: 0 auto; padding: 0 52px;
   display: flex; justify-content: space-between; align-items: center;
 }
 .foot-logo {
-  font-size: 12px; font-weight: 500;
-  letter-spacing: 5px; text-transform: uppercase;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 6px; text-transform: uppercase;
   color: var(--muted);
 }
-.foot-info {
+.foot-r {
   font-size: 11px; color: var(--muted);
   text-align: right; line-height: 2;
-  letter-spacing: .5px;
 }
 
 /* ── ANIMATIONS ── */
 @keyframes rise {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.rise  { animation: rise .9s cubic-bezier(.16,1,.3,1) both; }
-.d1    { animation-delay: .1s; }
-.d2    { animation-delay: .25s; }
-.d3    { animation-delay: .4s; }
-.d4    { animation-delay: .55s; }
+.rise { animation: rise .95s cubic-bezier(.16,1,.3,1) both; }
+.d1 { animation-delay: .1s; }
+.d2 { animation-delay: .26s; }
+.d3 { animation-delay: .42s; }
+.d4 { animation-delay: .56s; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 860px) {
+@media (max-width: 840px) {
   .w, .wm, .ws { padding: 0 24px; }
   .nav-in { padding: 0 24px; }
-  .hero { padding: 100px 0 90px; }
+  .foot-in { padding: 0 24px; }
+  .hero { padding: 108px 0 96px; }
   .hero-title { font-size: 52px; letter-spacing: -1px; }
-  .section { padding: 88px 0; }
-  .section-sm { padding: 72px 0; }
-  .pos-block, .limits, .reality-body { grid-template-columns: 1fr; }
-  .proc-item { grid-template-columns: 1fr; gap: 16px; padding: 36px 28px; }
-  .timeline { grid-template-columns: 1fr; }
-  .who-grid { grid-template-columns: 1fr; gap: 48px; }
-  .who-quote { position: static; font-size: 26px; }
+  .sec { padding: 96px 0; }
+  .sec-sm { padding: 72px 0; }
+  .pos-grid, .lim-grid { grid-template-columns: 1fr; }
+  .proc-row { grid-template-columns: 1fr; gap: 16px; padding: 40px 28px; }
+  .tl-grid { grid-template-columns: 1fr; }
+  .who-grid { grid-template-columns: 1fr; gap: 52px; }
+  .who-q { position: static; font-size: 28px; }
   .foot-in { flex-direction: column; gap: 16px; text-align: center; }
-  .foot-info { text-align: center; }
-  .cta-main { font-size: 48px; }
+  .foot-r { text-align: center; }
+  .cta-title { font-size: 52px; }
+  .cite-block { padding: 40px 32px; }
+  .ben-item { grid-template-columns: 36px 1fr; padding: 28px 28px; }
 }
 </style>
 </head>
@@ -559,27 +573,27 @@ footer {
     <h1 class="hero-title rise d1">
       Reprendre<br>le contrôle<br>de sa vie —<br><em>concrètement.</em>
     </h1>
-    <p class="hero-tension rise d2">
-      Ce que tu ne tiens pas seul devient tenable avec un cadre.
+    <p class="hero-main rise d2">
+      Ce que tu ne tiens pas seul<br>devient tenable avec un cadre.
     </p>
     <p class="hero-human rise d3">
-      Tu n'as pas besoin d'être parfait.<br>
-      <strong>Tu as besoin d'un système qui tient quand toi tu lâches.</strong>
+      Tu n'as pas besoin d'être parfait.
+      <strong>Tu as besoin d'un système stable qui tient quand toi tu lâches.</strong>
     </p>
     <a href="#diagnostic" class="btn rise d4">
       Faire un diagnostic <span>→</span>
     </a>
-    <p class="hero-sub rise d4">Appel gratuit de 60 à 90 min. Sans engagement.</p>
+    <p class="hero-note rise d4">Appel de 60 à 90 min. Gratuit. Sans engagement.</p>
   </div>
 </div>
 
 <hr class="line">
 
-<!-- IDENTIFICATION -->
-<div class="section">
+<!-- IDENTIFICATION — COMPRÉHENSION + SOULAGEMENT -->
+<div class="sec">
   <div class="wm">
     <div class="label">Le constat</div>
-    <div class="ident">
+    <div class="ident-wrap">
       <div class="ident-block">
         Tu fonctionnes.<br>Mais pas comme tu le devrais.
       </div>
@@ -593,59 +607,70 @@ footer {
         Tu recommences.<br>
         Tu t'épuises.
       </div>
-      <div class="ident-block strong">
+      <div class="ident-block key">
         Ce n'est pas un problème de motivation.<br>
         C'est un problème de structure.
+        <p class="ident-relief">Tu peux enfin arrêter de porter ça seul.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- BREAK PHRASE -->
-<div class="break-phrase">
-  <p class="bp-text">
-    Cet accompagnement commence là où les excuses s'arrêtent.
-  </p>
+<!-- INTERLUDE — après la compréhension, le soulagement -->
+<div class="interlude">
+  <div class="wm">
+    <p class="interlude-text">
+      Le chaos épuise.<br>
+      <strong>Un cadre stable change plus que la motivation.</strong>
+    </p>
+  </div>
 </div>
 
 <!-- POSITIONNEMENT -->
-<div class="section">
+<div class="sec">
   <div class="w">
     <div class="label acc">Ce qu'est STRUCTURE</div>
     <h2>Ni coaching.<br>Ni thérapie.<br><em>Un cadre.</em></h2>
     <p class="intro">
-      STRUCTURE n'est pas un programme motivationnel.<br>
-      C'est un système appliqué dans ta réalité — pas des conseils, pas des concepts.
+      Ce n'est pas un programme motivationnel.<br>
+      C'est un système de stabilisation — appliqué dans ta réalité, pas dans un module en ligne.
     </p>
-    <div class="pos-block">
+    <div class="pos-grid">
       <div class="pos-col">
-        <div class="pos-col-label mut">Ce que tu trouveras ailleurs</div>
+        <div class="pos-col-head mut">Ce que tu trouveras ailleurs</div>
         <ul class="pos-list no">
           <li>Des séances pour parler de tes problèmes</li>
-          <li>Des outils à appliquer seul, sans suivi réel</li>
+          <li>Des outils à appliquer seul, sans suivi</li>
           <li>De la motivation artificielle qui s'évapore</li>
           <li>Quelqu'un qui valide tes choix pour te rassurer</li>
           <li>Des programmes à regarder sans jamais appliquer</li>
         </ul>
       </div>
-      <div class="pos-col dark">
-        <div class="pos-col-label acc">Ce que tu trouveras ici</div>
+      <div class="pos-col shade">
+        <div class="pos-col-head acc">Ce que tu trouveras ici</div>
         <ul class="pos-list yes">
           <li>Un diagnostic précis de ce qui bloque réellement</li>
           <li>Un cadre structurant adapté à ta réalité</li>
           <li>Un suivi avec une accountability véritable</li>
-          <li>Quelqu'un qui maintient le cadre quand toi tu décroches</li>
-          <li>Un système qui tient dans le temps</li>
+          <li>Une présence qui maintient le cadre quand tu décroches</li>
+          <li>Un système qui construit ta stabilité progressivement</li>
         </ul>
       </div>
+    </div>
+
+    <div class="cite-block">
+      <p class="cite-text">
+        Tu ne paies pas pour être écouté.<br>
+        Tu paies pour que <strong>la distance entre ce que tu veux faire et ce que tu fais réellement</strong> se réduise — concrètement, à ton rythme.
+      </p>
     </div>
   </div>
 </div>
 
 <hr class="line">
 
-<!-- BÉNÉFICES -->
-<div class="section">
+<!-- BÉNÉFICES — PROJECTION ÉMOTIONNELLE -->
+<div class="sec">
   <div class="w">
     <div class="label acc">Ce que tu retrouves progressivement</div>
     <h2>L'état intérieur<br><em>que tu cherches.</em></h2>
@@ -653,107 +678,107 @@ footer {
       Les routines et les protocoles ne sont pas la finalité.<br>
       Ce qui compte, c'est ce que tu retrouves de l'autre côté.
     </p>
-    <ul class="benefits-list">
-      <li class="benefit-item">
-        <span class="benefit-num">01</span>
-        <span class="benefit-text"><strong>Des journées plus claires.</strong> Savoir quoi faire, dans quel ordre, sans t'épuiser à y penser.</span>
+    <ul class="ben-list">
+      <li class="ben-item">
+        <span class="ben-n">01</span>
+        <span class="ben-body"><strong>Des journées plus claires.</strong> Savoir quoi faire, dans quel ordre, sans t'épuiser à y penser.</span>
       </li>
-      <li class="benefit-item">
-        <span class="benefit-num">02</span>
-        <span class="benefit-text"><strong>Moins de décisions subies.</strong> Reprendre la main sur ton quotidien — pas parfaitement, mais réellement.</span>
+      <li class="ben-item">
+        <span class="ben-n">02</span>
+        <span class="ben-body"><strong>Une énergie plus stable.</strong> Le désordre chronique épuise. Quand la structure tient, l'énergie remonte naturellement.</span>
       </li>
-      <li class="benefit-item">
-        <span class="benefit-num">03</span>
-        <span class="benefit-text"><strong>Une énergie plus stable.</strong> Le désordre chronique épuise. Quand la structure tient, l'énergie remonte.</span>
+      <li class="ben-item">
+        <span class="ben-n">03</span>
+        <span class="ben-body"><strong>Moins de comportements que tu regrettes.</strong> Identifier les déclencheurs, les comprendre, les travailler dans la durée.</span>
       </li>
-      <li class="benefit-item">
-        <span class="benefit-num">04</span>
-        <span class="benefit-text"><strong>Moins de comportements que tu regrettes.</strong> Identifier les déclencheurs, les nommer, les travailler concrètement.</span>
+      <li class="ben-item">
+        <span class="ben-n">04</span>
+        <span class="ben-body"><strong>Un rythme qui tient dans le temps.</strong> Pas de pic suivi d'un effondrement — une constance construite progressivement.</span>
       </li>
-      <li class="benefit-item">
-        <span class="benefit-num">05</span>
-        <span class="benefit-text"><strong>Un rythme qui tient dans le temps.</strong> Pas de pic suivi d'un effondrement — une stabilité construite progressivement.</span>
+      <li class="ben-item">
+        <span class="ben-n">05</span>
+        <span class="ben-body"><strong>La capacité réelle de t'engager et de tenir.</strong> Parce que tu l'as prouvé — pas parce qu'on te l'a dit.</span>
       </li>
-      <li class="benefit-item">
-        <span class="benefit-num">06</span>
-        <span class="benefit-text"><strong>La confiance de savoir que tu peux tenir.</strong> Parce que tu l'as prouvé — pas parce qu'on te l'a dit.</span>
+      <li class="ben-item">
+        <span class="ben-n">06</span>
+        <span class="ben-body"><strong>Sortir du mode survie.</strong> Arrêter de subir les journées. Commencer à les construire — avec un cadre qui tient même quand tu ne le portes plus seul.</span>
       </li>
     </ul>
-    <p class="benefits-footer">Pas parfait. Stable.<br>Et surtout, durable.</p>
+    <p class="ben-footer">Pas parfait. Stable.<br>Et surtout, durable.</p>
   </div>
 </div>
 
 <hr class="line">
 
-<!-- COMMENT ÇA FONCTIONNE -->
-<div class="section">
+<!-- PROCESS -->
+<div class="sec">
   <div class="w">
     <div class="label">Comment ça fonctionne</div>
     <h2>Un cadre simple.<br><em>Une progression réelle.</em></h2>
     <p class="intro">
-      L'intensité s'adapte progressivement à ta réalité —<br>
-      elle n'est jamais imposée d'emblée.
+      L'intensité s'adapte progressivement à ta réalité.<br>
+      Elle n'est jamais imposée d'emblée.
     </p>
-    <div class="process">
-      <div class="proc-item">
-        <div class="proc-left">
-          <div class="proc-num">Phase 01</div>
-          <div class="proc-sub">Session initiale</div>
+    <div class="proc-list">
+      <div class="proc-row">
+        <div>
+          <div class="proc-tag">Phase 01</div>
+          <div class="proc-period">Session initiale</div>
         </div>
         <div>
-          <div class="proc-title">Diagnostic</div>
-          <div class="proc-desc">Comprendre précisément où ça bloque réellement. Pas une analyse générique — un diagnostic de ta situation spécifique.</div>
-          <ul class="proc-points">
-            <li>Habitudes et rythme quotidien</li>
-            <li>Environnement et déclencheurs</li>
-            <li>Points de rupture identifiés</li>
-            <li>Niveau de déséquilibre évalué</li>
+          <div class="proc-name">Diagnostic</div>
+          <div class="proc-desc">Comprendre précisément où ça bloque — pas une analyse générique. Un diagnostic de ta situation spécifique : habitudes, environnement, déclencheurs, points de rupture.</div>
+          <ul class="proc-items">
+            <li>Cartographie complète de ta réalité</li>
+            <li>Identification des déclencheurs principaux</li>
+            <li>Évaluation du niveau de déséquilibre</li>
+            <li>Décision partagée : prise en charge ou orientation</li>
           </ul>
         </div>
       </div>
-      <div class="proc-item">
-        <div class="proc-left">
-          <div class="proc-num">Phase 02</div>
-          <div class="proc-sub">Semaines 1 à 4</div>
+      <div class="proc-row">
+        <div>
+          <div class="proc-tag">Phase 02</div>
+          <div class="proc-period">Semaines 1 à 4</div>
         </div>
         <div>
-          <div class="proc-title">Structuration</div>
-          <div class="proc-desc">Mise en place d'un cadre adapté à ta réalité. Progressif, ajustable, construit avec toi — pas imposé sur toi.</div>
-          <ul class="proc-points">
-            <li>Règles structurantes simples</li>
-            <li>Routine fonctionnelle et réaliste</li>
-            <li>Suivi hebdomadaire et messagerie</li>
-            <li>Ajustement continu selon ta réalité</li>
+          <div class="proc-name">Structuration</div>
+          <div class="proc-desc">Mise en place d'un cadre adapté à ta réalité. Progressif, ajustable — construit avec toi, pas imposé sur toi.</div>
+          <ul class="proc-items">
+            <li>Règles structurantes simples et réalistes</li>
+            <li>Routine fonctionnelle adaptée à ta vie</li>
+            <li>Suivi hebdomadaire et messagerie encadrée</li>
+            <li>Ajustement continu selon ta progression</li>
           </ul>
         </div>
       </div>
-      <div class="proc-item">
-        <div class="proc-left">
-          <div class="proc-num">Phase 03</div>
-          <div class="proc-sub">Si nécessaire</div>
+      <div class="proc-row">
+        <div>
+          <div class="proc-tag">Phase 03</div>
+          <div class="proc-period">Si nécessaire</div>
         </div>
         <div>
-          <div class="proc-title">Renforcement</div>
-          <div class="proc-desc">Stabiliser ce que tu n'arrivais pas à tenir. Activé uniquement si le déséquilibre le requiert ou si tu stagnes.</div>
-          <ul class="proc-points">
+          <div class="proc-name">Renforcement</div>
+          <div class="proc-desc">Stabiliser ce que tu n'arrivais pas à tenir. Activé uniquement si le déséquilibre le requiert — jamais imposé par principe.</div>
+          <ul class="proc-items">
             <li>Suivi renforcé, 2 visios par semaine</li>
             <li>Travail approfondi sur les comportements résistants</li>
-            <li>Adaptation continue du protocole</li>
+            <li>Adaptation continue du cadre</li>
           </ul>
         </div>
       </div>
-      <div class="proc-item">
-        <div class="proc-left">
-          <div class="proc-num">Phase 04</div>
-          <div class="proc-sub">Option avancée</div>
+      <div class="proc-row">
+        <div>
+          <div class="proc-tag">Phase 04</div>
+          <div class="proc-period">Option avancée</div>
         </div>
         <div>
-          <div class="proc-title">Intervention terrain</div>
-          <div class="proc-desc">Quand certaines choses ne peuvent pas se corriger à distance. Intervenir directement dans l'environnement réel lorsque c'est nécessaire.</div>
-          <ul class="proc-points">
+          <div class="proc-name">Intervention terrain</div>
+          <div class="proc-desc">Quand certaines choses ne peuvent pas se corriger à distance. Intervenir directement dans l'environnement réel — toujours avec consentement explicite, jamais précipité.</div>
+          <ul class="proc-items">
             <li>Intervention ponctuelle et ciblée</li>
             <li>Dans l'environnement de vie réel</li>
-            <li>Toujours avec consentement écrit explicite</li>
+            <li>France & Belgique</li>
           </ul>
         </div>
       </div>
@@ -764,82 +789,67 @@ footer {
 <hr class="line">
 
 <!-- TIMELINE -->
-<div class="section">
+<div class="sec">
   <div class="w">
     <div class="label">Concrètement, ce que tu observes</div>
     <h2>Semaine<br><em>après semaine.</em></h2>
-    <p class="intro">Pas des promesses. Des transformations observables à des moments précis.</p>
-    <div class="timeline">
-      <div class="tl-item">
+    <p class="intro">Pas des promesses. Des évolutions observables — dans les comportements, le quotidien, la façon de tenir.</p>
+    <div class="tl-grid">
+      <div class="tl-col">
         <div class="tl-period">Semaines 1 — 2</div>
         <div class="tl-title">Reprise de contrôle initiale</div>
-        <ul class="tl-list">
+        <ul class="tl-items">
           <li>Rythme de lever stabilisé</li>
           <li>Premières règles structurantes tenues</li>
-          <li>Reporting quotidien en place</li>
-          <li>Déclencheurs identifiés</li>
+          <li>Reporting quotidien mis en place</li>
+          <li>Déclencheurs identifiés et nommés</li>
         </ul>
       </div>
-      <div class="tl-item">
+      <div class="tl-col">
         <div class="tl-period">Semaines 3 — 5</div>
         <div class="tl-title">Rythme et stabilisation</div>
-        <ul class="tl-list">
-          <li>Rythme de vie plus stable</li>
+        <ul class="tl-items">
+          <li>Rythme de vie plus régulier</li>
           <li>Moins de chaos au quotidien</li>
-          <li>Premières vraies habitudes ancrées</li>
-          <li>Énergie perceptiblement meilleure</li>
+          <li>Premières habitudes ancrées</li>
+          <li>Énergie perceptiblement plus stable</li>
         </ul>
       </div>
-      <div class="tl-item">
+      <div class="tl-col">
         <div class="tl-period">Semaine 6 et au-delà</div>
         <div class="tl-title">Autonomie progressive</div>
-        <ul class="tl-list">
-          <li>Protocole tenu sans rappel externe</li>
-          <li>Comportements plus solides</li>
-          <li>Stabilité durable construite</li>
-          <li>Plan d'autonomie établi</li>
+        <ul class="tl-items">
+          <li>Cadre tenu sans rappel externe</li>
+          <li>Comportements plus solides et constants</li>
+          <li>Stabilité construite dans la durée</li>
+          <li>Plan d'autonomie établi pour la suite</li>
         </ul>
       </div>
     </div>
   </div>
 </div>
 
-<!-- RÉALITÉ -->
-<div class="reality">
-  <div class="w">
-    <div class="label">Ce qu'il faut comprendre</div>
-    <h2 class="reality-title">Ce système fonctionne.<br>Mais seulement si<br><em>tu t'engages réellement.</em></h2>
-    <div class="reality-body">
-      <div class="reality-col">
-        <p>Il ne s'adresse pas à ceux qui cherchent du confort, de la motivation, ou des excuses améliorées.</p>
-        <p>Il s'adresse à ceux qui veulent <strong>enfin arrêter de tourner en rond.</strong></p>
-      </div>
-      <div class="reality-col">
-        <p>Le cadre est exigeant parce que c'est ce qui fonctionne. Pas parce que la difficulté est une valeur en soi.</p>
-        <p><strong>L'intensité s'adapte. L'engagement, lui, ne se négocie pas.</strong></p>
-      </div>
-    </div>
-  </div>
-</div>
+<hr class="line">
 
 <!-- QUI JE SUIS -->
-<div class="section">
+<div class="sec">
   <div class="w">
     <div class="label">Qui je suis</div>
     <div class="who-grid">
-      <div class="who-quote">
-        "J'ai vu ce que donne l'absence de cadre.<br>Et j'ai vu ce que ça change quand un cadre tient."
+      <div class="who-q">
+        "J'ai vu ce que donne<br>l'absence de cadre.<br>Et j'ai vu ce que ça change<br>quand un cadre tient."
       </div>
       <div class="who-body">
-        <p>Ce système n'est pas théorique. Il vient d'une réalité vécue, observée et reconstruite — celle de comprendre de l'intérieur ce que coûte vraiment le désordre chronique.</p>
+        <p>Ce système n'est pas théorique. Il vient d'une réalité vécue — celle de comprendre de l'intérieur ce que coûte vraiment le désordre chronique et de trouver, progressivement, ce qui change réellement les choses.</p>
+        <p>Ce que j'ai compris : on ne manque pas de volonté. On manque de structure. La volonté seule ne suffit pas quand rien ne la soutient.</p>
         <p>J'ai volontairement écarté ce qui ne tient pas :</p>
-        <ul class="who-items">
+        <ul class="who-exclu">
           <li>la motivation vide</li>
           <li>les solutions rapides</li>
           <li>les approches qui ne durent pas</li>
         </ul>
-        <p>Ce que je propose ici est simple : <strong>remettre de l'ordre là où il n'y en a plus.</strong> Pas parfaitement. Réellement.</p>
-        <p>STRUCTURE n'est pas né d'une formation. Il est né de la certitude que ce qui m'a sorti du désordre peut être construit pour quelqu'un d'autre — de façon rigoureuse, personnalisée, ancrée dans le réel.</p>
+        <p>Ce que je propose ici est simple : <strong>remettre de la stabilité là où il n'y en a plus.</strong> Pas parfaitement. Réellement.</p>
+        <p>STRUCTURE n'est pas né d'une formation. Il est né de la certitude que ce qui m'a sorti du désordre peut être construit pour quelqu'un d'autre — de façon rigoureuse, personnalisée, humaine.</p>
       </div>
     </div>
   </div>
@@ -848,25 +858,25 @@ footer {
 <hr class="line">
 
 <!-- LIMITES -->
-<div class="section-sm">
+<div class="sec-sm">
   <div class="w">
-    <div class="label">Transparence totale</div>
+    <div class="label">Transparence</div>
     <h2>Ce que STRUCTURE<br><em>est et n'est pas.</em></h2>
     <p class="intro">La clarté sur les limites est le premier signe du sérieux d'un service.</p>
-    <div class="limits">
-      <div class="limit-col">
-        <div class="limit-label acc">Ce que c'est</div>
-        <ul class="limit-list yes">
+    <div class="lim-grid">
+      <div class="lim-col">
+        <div class="lim-head acc">Ce que c'est</div>
+        <ul class="lim-list yes">
+          <li>Un cadre humain de stabilisation personnelle</li>
           <li>Un accompagnement structurant non médical</li>
-          <li>Un cadre externe qui tient quand la motivation flanche</li>
-          <li>Un protocole adaptatif qui évolue avec toi</li>
+          <li>Un système qui s'adapte à ta réalité</li>
+          <li>Une progression construite à ton rythme</li>
           <li>Un système qui construit ton autonomie</li>
-          <li>Une présence qui confronte à la réalité avec lucidité</li>
         </ul>
       </div>
-      <div class="limit-col dark">
-        <div class="limit-label mut">Ce que ce n'est pas</div>
-        <ul class="limit-list no">
+      <div class="lim-col shade">
+        <div class="lim-head mut">Ce que ce n'est pas</div>
+        <ul class="lim-list no">
           <li>Une solution miracle ou un raccourci</li>
           <li>Un traitement médical ou une thérapie</li>
           <li>Un programme passif ou confortable</li>
@@ -879,15 +889,18 @@ footer {
 </div>
 
 <!-- CTA FINAL -->
-<div class="cta-final" id="diagnostic">
+<div class="cta-s" id="diagnostic">
   <div class="ws">
-    <p class="cta-tension">Si rien ne change, rien ne changera.</p>
-    <h2 class="cta-main">
+    <p class="cta-pre">
+      Tu peux continuer comme avant.<br>
+      Ou décider que cette fois, ça tient.
+    </p>
+    <h2 class="cta-title">
       Faire un<br><em>diagnostic.</em>
     </h2>
     <p class="cta-body">
-      Tu peux continuer comme avant.<br>
-      Ou décider que cette fois, ça tient.
+      60 à 90 minutes pour comprendre précisément où tu en es.<br>
+      Gratuit. Sans engagement avant cet échange.
     </p>
     <a href="REMPLACER_PAR_LIEN_TYPEFORM" class="btn">
       Faire un diagnostic <span>→</span>
@@ -908,7 +921,7 @@ footer {
 <footer>
   <div class="foot-in">
     <div class="foot-logo">Structure</div>
-    <div class="foot-info">
+    <div class="foot-r">
       structure.expert<br>
       France & Belgique — 2025<br>
       contact@structure.expert
