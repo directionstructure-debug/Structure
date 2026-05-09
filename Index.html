@@ -4,26 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>STRUCTURE — Reprendre le contrôle de sa vie</title>
-<meta name="description" content="STRUCTURE est un cadre humain de stabilisation personnelle. Ce que tu ne tiens pas seul devient tenable avec un cadre.">
+<meta name="description" content="Un espace premium de stabilisation humaine. Ce que tu ne tiens pas seul devient tenable avec un soutien structuré.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:      #151515;
-  --bg-2:    #1A1A1A;
-  --bg-3:    #1F1F1F;
-  --border:  #242424;
-  --border-l:#2E2E2E;
-  --stone:   #A8A39B;
-  --soft:    #787370;
-  --body:    #C4C0BB;
-  --heading: #F3F1EC;
-  --sage:    #667268;
-  --sage-l:  #7A8A7C;
-  --sage-d:  rgba(102,114,104,.09);
-  --sage-b:  rgba(102,114,104,.22);
+  --bg:       #151515;
+  --s1:       #1A1A1A;
+  --s2:       #1E1E1E;
+  --s3:       #242424;
+  --border:   #222222;
+  --b2:       #2C2C2C;
+  --stone:    #B7B1A8;
+  --muted:    #6B6560;
+  --body:     #C4C0BA;
+  --head:     #F3F1EC;
+  --sage:     #667268;
+  --sage-l:   #7A897C;
+  --sage-d:   rgba(102,114,104,.08);
+  --sage-b:   rgba(102,114,104,.18);
 }
 
 html { scroll-behavior: smooth; }
@@ -41,192 +42,256 @@ body {
 }
 
 /* ── LAYOUT ── */
-.w  { max-width: 960px;  margin: 0 auto; padding: 0 56px; }
-.wm { max-width: 680px;  margin: 0 auto; padding: 0 56px; }
-.ws { max-width: 500px;  margin: 0 auto; padding: 0 56px; }
+.w  { max-width: 980px; margin: 0 auto; padding: 0 60px; }
+.wm { max-width: 700px; margin: 0 auto; padding: 0 60px; }
+.ws { max-width: 520px; margin: 0 auto; padding: 0 60px; }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1.1s cubic-bezier(.16,1,.3,1),
+              transform 1.1s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .1s; }
+.reveal-d2 { transition-delay: .22s; }
+.reveal-d3 { transition-delay: .36s; }
+.reveal-d4 { transition-delay: .50s; }
+.reveal-d5 { transition-delay: .64s; }
+
+/* line reveal */
+.line-reveal {
+  overflow: hidden;
+}
+.line-reveal span {
+  display: block;
+  transform: translateY(100%);
+  transition: transform 1.1s cubic-bezier(.16,1,.3,1);
+}
+.line-reveal.visible span { transform: translateY(0); }
 
 /* ── NAV ── */
 nav {
   padding: 30px 0;
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0;
-  background: rgba(21,21,21,.98);
-  backdrop-filter: blur(28px);
-  z-index: 100;
+  background: rgba(21,21,21,.97);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  z-index: 200;
 }
 .nav-in {
-  max-width: 960px; margin: 0 auto; padding: 0 56px;
+  max-width: 980px; margin: 0 auto; padding: 0 60px;
   display: flex; justify-content: space-between; align-items: center;
 }
 .nav-logo {
-  font-family: 'Inter', sans-serif;
   font-size: 11px; font-weight: 500;
   letter-spacing: 8px; text-transform: uppercase;
-  color: var(--heading);
+  color: var(--head); letter-spacing: 8px;
 }
-.nav-link {
+.nav-cta {
   font-size: 11px; font-weight: 400;
   letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--sage-l);
   border: 1px solid var(--sage-b);
   padding: 10px 24px;
   text-decoration: none;
-  transition: background .3s;
+  transition: background .4s ease, color .4s ease;
 }
-.nav-link:hover { background: var(--sage-d); }
+.nav-cta:hover {
+  background: var(--sage-d);
+  color: var(--head);
+}
 
 /* ── HERO ── */
 .hero {
   padding: 180px 0 160px;
   position: relative; overflow: hidden;
+  min-height: 100svh;
+  display: flex; align-items: center;
 }
-.hero-glow {
-  position: absolute; top: -200px; right: -300px;
-  width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(102,114,104,.04) 0%, transparent 60%);
+.hero-orb {
+  position: absolute; top: -20%; right: -20%;
+  width: 70vw; height: 70vw; max-width: 700px;
+  background: radial-gradient(circle,
+    rgba(102,114,104,.05) 0%,
+    rgba(102,114,104,.02) 35%,
+    transparent 70%);
   pointer-events: none;
+  animation: breathe 12s ease-in-out infinite;
 }
-.h-label {
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: .7; }
+  50%       { transform: scale(1.06); opacity: 1; }
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-eyebrow {
   font-size: 10px; font-weight: 400;
   letter-spacing: 5px; text-transform: uppercase;
-  color: var(--sage); margin-bottom: 60px;
-  display: flex; align-items: center; gap: 20px;
-  opacity: .85;
+  color: var(--sage); margin-bottom: 64px;
+  display: flex; align-items: center; gap: 18px;
+  opacity: 0; animation: fadeUp 1s .2s cubic-bezier(.16,1,.3,1) forwards;
 }
-.h-label::before {
-  content: ''; display: block;
-  width: 30px; height: 1px; background: var(--sage);
+.hero-eyebrow::before {
+  content: ''; width: 28px; height: 1px;
+  background: var(--sage); flex-shrink: 0;
 }
-.h-title {
+.hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(66px, 9vw, 114px);
-  font-weight: 300; line-height: .97;
-  letter-spacing: -2px; color: var(--heading);
-  margin-bottom: 56px;
+  font-size: clamp(68px, 10vw, 120px);
+  font-weight: 300; line-height: .96;
+  letter-spacing: -2.5px; color: var(--head);
+  margin-bottom: 60px;
+  opacity: 0; animation: fadeUp 1.1s .35s cubic-bezier(.16,1,.3,1) forwards;
 }
-.h-title em { font-style: italic; }
-.h-main {
+.hero-title em { font-style: italic; }
+.hero-body {
+  max-width: 440px;
+  opacity: 0; animation: fadeUp 1.1s .52s cubic-bezier(.16,1,.3,1) forwards;
+}
+.hero-main {
   font-size: 19px; font-weight: 300;
-  color: var(--body); max-width: 440px;
-  line-height: 1.75; margin-bottom: 20px;
+  color: var(--body); line-height: 1.7;
+  margin-bottom: 18px;
 }
-.h-human {
-  font-size: 16px; font-weight: 300;
-  color: var(--stone); max-width: 400px;
+.hero-human {
+  font-size: 16px; color: var(--muted);
   line-height: 1.95; margin-bottom: 64px;
 }
-.h-human strong {
+.hero-human strong {
   color: var(--body); font-weight: 300;
   display: block; margin-top: 10px;
 }
 .btn {
   display: inline-flex; align-items: center; gap: 14px;
-  background: var(--heading); color: var(--bg);
+  background: var(--head); color: var(--bg);
   padding: 17px 40px;
   font-size: 11px; font-weight: 500;
   letter-spacing: 2.5px; text-transform: uppercase;
   text-decoration: none;
-  transition: background .25s, gap .3s;
+  transition: background .35s ease, gap .35s ease;
 }
-.btn:hover { background: #E8E5DF; gap: 22px; }
-.h-note {
-  margin-top: 20px; font-size: 12px;
-  color: var(--soft); font-style: italic;
+.btn:hover { background: #E6E2DC; gap: 22px; }
+.btn-ghost {
+  background: transparent;
+  color: var(--head);
+  border: 1px solid var(--b2);
+  padding: 17px 40px;
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 14px;
+  transition: border-color .35s, color .35s, gap .35s;
+}
+.btn-ghost:hover { border-color: var(--sage-b); color: var(--head); gap: 22px; }
+.hero-note {
+  margin-top: 18px; font-size: 12px;
+  color: var(--muted); font-style: italic;
+  opacity: 0; animation: fadeUp .9s .8s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── DIVIDER ── */
+/* ── SEPARATORS ── */
 .sep { border: none; border-top: 1px solid var(--border); }
 
 /* ── SECTIONS ── */
-.sec    { padding: 144px 0; }
-.sec-sm { padding: 104px 0; }
+.sec    { padding: 152px 0; }
+.sec-sm { padding: 108px 0; }
+.sec-xs { padding: 80px 0; }
 
 .lbl {
   font-size: 10px; font-weight: 400;
-  letter-spacing: 4.5px; text-transform: uppercase;
-  color: var(--soft); margin-bottom: 36px;
+  letter-spacing: 5px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 40px;
 }
-.lbl.sage { color: var(--sage); opacity: .85; }
+.lbl.sage { color: var(--sage); }
 
 h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(38px, 5vw, 58px);
+  font-size: clamp(40px, 5.5vw, 62px);
   font-weight: 300; line-height: 1.1;
-  color: var(--heading); margin-bottom: 28px;
-  letter-spacing: -1px;
+  color: var(--head); margin-bottom: 28px;
+  letter-spacing: -1.5px;
 }
 h2 em { font-style: italic; }
 
 .intro {
   font-size: 17px; font-weight: 300;
   color: var(--body); max-width: 460px;
-  line-height: 1.95; margin-bottom: 80px;
+  line-height: 1.95; margin-bottom: 88px;
 }
 
 /* ── IDENTIFICATION ── */
 .ident {
   display: flex; flex-direction: column;
-  gap: 52px; max-width: 580px;
+  gap: 56px; max-width: 600px;
 }
 .id-line {
-  font-size: 18px; font-weight: 300;
-  color: var(--stone); line-height: 1.95;
+  font-size: 19px; font-weight: 300;
+  color: var(--muted); line-height: 1.9;
 }
 .id-key {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 3.8vw, 40px);
+  font-size: clamp(28px, 4vw, 42px);
   font-weight: 300; font-style: italic;
-  color: var(--heading); line-height: 1.4;
+  color: var(--head); line-height: 1.4;
 }
-.id-relief {
+.id-breath {
   margin-top: 20px;
   font-family: 'Inter', sans-serif;
-  font-size: 16px; font-weight: 300;
+  font-size: 17px; font-weight: 300;
   color: var(--body); font-style: normal;
   line-height: 1.85;
 }
 
 /* ── INTERLUDE ── */
 .interlude {
-  padding: 120px 0;
-  background: var(--bg-2);
+  padding: 128px 0;
+  background: var(--s1);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  overflow: hidden;
 }
-.inter-text {
+.interlude-inner {
+  max-width: 700px; margin: 0 auto; padding: 0 60px;
+}
+.interlude-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 4.5vw, 48px);
+  font-size: clamp(28px, 4.5vw, 50px);
   font-weight: 300; font-style: italic;
-  color: var(--heading); line-height: 1.4;
-  max-width: 660px;
+  color: var(--head); line-height: 1.4;
 }
-.inter-text strong {
-  font-style: normal;
+.interlude-text strong {
+  font-style: normal; font-weight: 300;
   color: var(--sage-l);
 }
 
 /* ── POSITIONNEMENT ── */
-.pos {
+.pos-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
+  margin-top: 8px;
 }
 .pos-col {
-  background: var(--bg);
-  padding: 60px 52px;
+  background: var(--bg); padding: 64px 56px;
 }
-.pos-col.shade { background: var(--bg-2); }
+.pos-col.shade { background: var(--s1); }
 .pos-head {
   font-size: 10px; font-weight: 400;
   letter-spacing: 3.5px; text-transform: uppercase;
-  padding-bottom: 24px; margin-bottom: 40px;
+  padding-bottom: 24px; margin-bottom: 44px;
   border-bottom: 1px solid var(--border);
 }
 .pos-head.sage { color: var(--sage); border-color: var(--sage-b); }
-.pos-head.muted { color: var(--soft); }
+.pos-head.muted { color: var(--muted); }
 .pos-list {
   list-style: none;
-  display: flex; flex-direction: column; gap: 22px;
+  display: flex; flex-direction: column; gap: 24px;
 }
 .pos-list li {
   font-size: 15px; color: var(--body);
@@ -239,78 +304,74 @@ h2 em { font-style: italic; }
 }
 .pos-list.no li::before {
   content: '—'; position: absolute; left: 0;
-  color: var(--soft); top: 4px; font-size: 12px;
+  color: var(--muted); top: 4px; font-size: 12px;
 }
 
 /* ── CITATION ── */
 .cite {
-  margin: 88px 0;
-  padding: 60px 56px;
+  margin: 96px 0;
+  padding: 64px 60px;
   border: 1px solid var(--border);
   border-left: 2px solid var(--sage);
-  background: var(--bg-2);
+  background: var(--s1);
 }
 .cite-t {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 3vw, 33px);
+  font-size: clamp(22px, 3vw, 35px);
   font-weight: 300; font-style: italic;
-  color: var(--heading); line-height: 1.5;
+  color: var(--head); line-height: 1.55;
 }
 .cite-t strong { font-style: normal; font-weight: 300; }
 
 /* ── POURQUOI ÇA FONCTIONNE ── */
 .why {
-  padding: 120px 0;
-  background: var(--bg-2);
+  padding: 128px 0;
+  background: var(--s1);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 .why-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 100px; align-items: center;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 112px; align-items: center;
 }
-.why-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 5vw, 54px);
-  font-weight: 300; line-height: 1.12;
-  color: var(--heading);
-}
-.why-title em { font-style: italic; }
+.why-left h2 { margin-bottom: 0; }
 .why-body {
-  display: flex; flex-direction: column; gap: 24px;
+  display: flex; flex-direction: column; gap: 26px;
 }
 .why-body p {
   font-size: 16px; color: var(--body); line-height: 1.95;
 }
-.why-body p strong { color: var(--heading); font-weight: 400; }
+.why-body p strong { color: var(--head); font-weight: 400; }
 
 /* ── BÉNÉFICES ── */
-.ben {
+.ben-list {
   list-style: none;
   border: 1px solid var(--border);
+  overflow: hidden;
 }
 .ben-item {
-  padding: 36px 48px;
+  padding: 36px 52px;
   border-bottom: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 52px 1fr;
+  grid-template-columns: 56px 1fr;
   gap: 28px; align-items: baseline;
-  transition: background .3s;
+  background: var(--bg);
+  transition: background .4s ease;
 }
 .ben-item:last-child { border-bottom: none; }
-.ben-item:hover { background: var(--bg-2); }
+.ben-item:hover { background: var(--s1); }
 .ben-n {
-  font-size: 11px; color: var(--soft);
+  font-size: 11px; color: var(--muted);
   font-weight: 300; letter-spacing: 1px;
 }
 .ben-t { font-size: 16px; color: var(--body); line-height: 1.8; }
-.ben-t strong { color: var(--heading); font-weight: 400; }
+.ben-t strong { color: var(--head); font-weight: 400; }
 .ben-foot {
-  margin-top: 56px;
+  margin-top: 60px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 3vw, 32px);
-  font-style: italic; color: var(--heading); line-height: 1.5;
+  font-size: clamp(22px, 3vw, 34px);
+  font-style: italic; color: var(--head); line-height: 1.5;
 }
 
 /* ── PROCESS ── */
@@ -321,30 +382,30 @@ h2 em { font-style: italic; }
 }
 .proc-item {
   background: var(--bg);
-  padding: 56px 60px;
+  padding: 60px 64px;
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 56px; align-items: start;
-  transition: background .3s;
+  grid-template-columns: 160px 1fr;
+  gap: 60px; align-items: start;
+  transition: background .4s ease;
 }
-.proc-item:hover { background: var(--bg-2); }
-.proc-n {
-  font-size: 10px; letter-spacing: 3.5px;
+.proc-item:hover { background: var(--s1); }
+.proc-tag {
+  font-size: 10px; letter-spacing: 4px;
   text-transform: uppercase; color: var(--sage);
-  font-weight: 400; margin-bottom: 10px; opacity: .85;
+  font-weight: 400; margin-bottom: 10px;
 }
 .proc-period {
-  font-size: 12px; color: var(--soft); letter-spacing: 1px;
+  font-size: 12px; color: var(--muted); letter-spacing: 1px;
 }
 .proc-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 28px; font-weight: 300;
-  color: var(--heading); margin-bottom: 16px;
+  font-size: 30px; font-weight: 300;
+  color: var(--head); margin-bottom: 18px;
 }
 .proc-desc {
   font-size: 15px; color: var(--body);
   line-height: 1.9; margin-bottom: 28px;
-  max-width: 500px;
+  max-width: 520px;
 }
 .proc-pts {
   list-style: none;
@@ -352,34 +413,33 @@ h2 em { font-style: italic; }
 }
 .proc-pts li {
   font-size: 13px; color: var(--stone);
-  padding-left: 18px; position: relative; line-height: 1.65;
+  padding-left: 20px; position: relative; line-height: 1.65;
 }
 .proc-pts li::before {
   content: '–'; position: absolute; left: 0;
-  color: var(--border-l);
+  color: var(--b2);
 }
 
 /* ── TIMELINE ── */
 .tl {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
 }
 .tl-col {
-  background: var(--bg); padding: 52px 44px;
-  transition: background .3s;
+  background: var(--bg); padding: 56px 48px;
+  transition: background .4s ease;
 }
-.tl-col:hover { background: var(--bg-2); }
+.tl-col:hover { background: var(--s1); }
 .tl-period {
   font-size: 10px; letter-spacing: 4px;
   text-transform: uppercase; color: var(--sage);
-  font-weight: 400; margin-bottom: 28px; opacity: .85;
+  font-weight: 400; margin-bottom: 28px;
 }
 .tl-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 22px; font-weight: 300;
-  color: var(--heading); margin-bottom: 28px; line-height: 1.3;
+  color: var(--head); margin-bottom: 28px; line-height: 1.3;
 }
 .tl-list {
   list-style: none;
@@ -387,56 +447,69 @@ h2 em { font-style: italic; }
 }
 .tl-list li {
   font-size: 14px; color: var(--body);
-  padding-left: 18px; position: relative; line-height: 1.7;
+  padding-left: 20px; position: relative; line-height: 1.7;
 }
 .tl-list li::before {
   content: '—'; position: absolute; left: 0;
-  color: var(--soft); font-size: 12px;
+  color: var(--muted); font-size: 12px;
 }
 
 /* ── TÉMOIGNAGES ── */
-.temoignages { padding: 144px 0; }
-.temo-grid {
+.temo-list {
   display: flex; flex-direction: column;
   gap: 2px;
 }
 .temo-item {
-  background: var(--bg-2);
+  background: var(--s1);
   border: 1px solid var(--border);
-  padding: 56px 60px;
-  transition: background .3s;
+  padding: 64px 68px;
+  transition: background .4s ease;
+  position: relative;
 }
-.temo-item:hover { background: var(--bg-3); }
+.temo-item:hover { background: var(--s2); }
+.temo-item::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px; line-height: 1;
+  color: var(--sage);
+  opacity: .08;
+  position: absolute;
+  top: 24px; left: 52px;
+  pointer-events: none;
+}
 .temo-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(20px, 2.8vw, 26px);
+  font-size: clamp(20px, 2.8vw, 27px);
   font-weight: 300; font-style: italic;
-  color: var(--heading); line-height: 1.6;
-  margin-bottom: 32px;
+  color: var(--head); line-height: 1.65;
+  margin-bottom: 40px;
+  position: relative; z-index: 1;
 }
 .temo-attr {
-  font-size: 12px; font-weight: 400;
-  letter-spacing: 2px; text-transform: uppercase;
-  color: var(--soft);
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted);
   display: flex; align-items: center; gap: 16px;
 }
 .temo-attr::before {
-  content: ''; display: block;
-  width: 24px; height: 1px; background: var(--sage);
+  content: ''; width: 20px; height: 1px;
+  background: var(--sage); flex-shrink: 0;
 }
 
 /* ── QUI JE SUIS ── */
 .who-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 108px; align-items: start;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 120px; align-items: start;
+}
+.who-sticky {
+  position: sticky; top: 140px;
 }
 .who-q {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, 3.8vw, 40px);
+  font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 300; font-style: italic;
-  color: var(--heading); line-height: 1.45;
-  position: sticky; top: 130px;
+  color: var(--head); line-height: 1.45;
 }
 .who-body {
   display: flex; flex-direction: column; gap: 28px;
@@ -444,38 +517,40 @@ h2 em { font-style: italic; }
 .who-body p {
   font-size: 16px; color: var(--body); line-height: 1.95;
 }
-.who-body p strong { color: var(--heading); font-weight: 400; }
+.who-body p strong { color: var(--head); font-weight: 400; }
 .who-exclu {
   list-style: none;
-  display: flex; flex-direction: column; gap: 14px; margin: 4px 0;
+  display: flex; flex-direction: column; gap: 14px;
+  padding: 28px 0; border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 .who-exclu li {
   font-size: 15px; color: var(--stone);
-  padding-left: 24px; position: relative;
+  padding-left: 24px; position: relative; line-height: 1.7;
 }
 .who-exclu li::before {
   content: '×'; position: absolute; left: 0;
-  color: var(--soft); font-size: 12px; top: 4px;
+  color: var(--muted); font-size: 12px; top: 4px;
 }
 
 /* ── LIMITES ── */
-.lim {
+.lim-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1px; background: var(--border);
   border: 1px solid var(--border);
 }
 .lim-col {
-  background: var(--bg); padding: 56px 52px;
+  background: var(--bg); padding: 60px 56px;
 }
-.lim-col.shade { background: var(--bg-2); }
+.lim-col.shade { background: var(--s1); }
 .lim-head {
   font-size: 10px; font-weight: 400;
   letter-spacing: 3.5px; text-transform: uppercase;
-  padding-bottom: 22px; margin-bottom: 36px;
+  padding-bottom: 24px; margin-bottom: 40px;
   border-bottom: 1px solid var(--border);
 }
 .lim-head.sage { color: var(--sage); border-color: var(--sage-b); }
-.lim-head.muted { color: var(--soft); }
+.lim-head.muted { color: var(--muted); }
 .lim-list {
   list-style: none;
   display: flex; flex-direction: column; gap: 18px;
@@ -490,31 +565,34 @@ h2 em { font-style: italic; }
 }
 .lim-list.no li::before {
   content: '×'; position: absolute; left: 0;
-  color: var(--soft); font-size: 12px; top: 4px;
+  color: var(--muted); font-size: 12px; top: 4px;
 }
 
-/* ── CTA ── */
+/* ── CTA FINAL ── */
 .cta-s {
-  padding: 176px 0; text-align: center;
+  padding: 188px 0; text-align: center;
   position: relative; overflow: hidden;
 }
-.cta-s::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 70%,
-    rgba(102,114,104,.06) 0%, transparent 55%);
+.cta-orb {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 65%,
+    rgba(102,114,104,.06) 0%,
+    rgba(102,114,104,.02) 40%,
+    transparent 65%);
   pointer-events: none;
+  animation: breathe 14s ease-in-out infinite;
 }
 .cta-pre {
-  font-size: 15px; color: var(--stone);
+  font-size: 15px; color: var(--muted);
   font-style: italic; line-height: 1.8;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 .cta-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(56px, 9vw, 108px);
+  font-size: clamp(60px, 10vw, 116px);
   font-weight: 300; line-height: 1.02;
-  color: var(--heading); margin-bottom: 36px;
-  letter-spacing: -2px;
+  color: var(--head); margin-bottom: 36px;
+  letter-spacing: -3px;
 }
 .cta-title em { font-style: italic; }
 .cta-body {
@@ -522,100 +600,107 @@ h2 em { font-style: italic; }
   max-width: 360px; margin: 0 auto 56px; line-height: 1.9;
 }
 .cta-note {
-  margin-top: 20px; font-size: 12px;
-  color: var(--soft); font-style: italic;
+  margin-top: 22px; font-size: 12px;
+  color: var(--muted); font-style: italic;
 }
 
 /* ── LEGAL & FOOTER ── */
-.legal {
-  padding: 60px 0;
-  border-top: 1px solid var(--border);
-}
+.legal { padding: 64px 0; border-top: 1px solid var(--border); }
 .legal-lbl {
   font-size: 10px; letter-spacing: 4px;
-  text-transform: uppercase; color: var(--soft);
-  margin-bottom: 18px; font-weight: 400;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 20px; font-weight: 400;
 }
 .legal-t {
-  font-size: 12px; color: var(--soft);
+  font-size: 12px; color: var(--muted);
   line-height: 2.1; max-width: 760px;
 }
-footer { padding: 44px 0; border-top: 1px solid var(--border); }
+footer { padding: 46px 0; border-top: 1px solid var(--border); }
 .foot-in {
-  max-width: 960px; margin: 0 auto; padding: 0 56px;
+  max-width: 980px; margin: 0 auto; padding: 0 60px;
   display: flex; justify-content: space-between; align-items: center;
 }
 .foot-logo {
   font-size: 11px; font-weight: 500;
   letter-spacing: 7px; text-transform: uppercase;
-  color: var(--soft);
+  color: var(--muted);
 }
 .foot-r {
-  font-size: 11px; color: var(--soft);
+  font-size: 11px; color: var(--muted);
   text-align: right; line-height: 2.1;
 }
 
-/* ── ANIMATIONS ── */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.rise { animation: rise 1.1s cubic-bezier(.16,1,.3,1) both; }
-.d1 { animation-delay: .1s; }
-.d2 { animation-delay: .28s; }
-.d3 { animation-delay: .46s; }
-.d4 { animation-delay: .62s; }
-
 /* ── RESPONSIVE ── */
-@media (max-width: 840px) {
-  .w, .wm, .ws { padding: 0 24px; }
-  .nav-in { padding: 0 24px; }
-  .foot-in { padding: 0 24px; }
-  .hero { padding: 112px 0 100px; }
-  .h-title { font-size: 52px; letter-spacing: -1px; }
-  .sec { padding: 96px 0; }
-  .sec-sm { padding: 72px 0; }
-  .pos, .lim { grid-template-columns: 1fr; }
-  .proc-item { grid-template-columns: 1fr; gap: 16px; padding: 44px 28px; }
+@media (max-width: 900px) {
+  .w, .wm, .ws { padding: 0 28px; }
+  .nav-in, .foot-in { padding: 0 28px; }
+  .interlude-inner { padding: 0 28px; }
+  .hero { padding: 120px 0 100px; min-height: auto; }
+  .hero-title { font-size: 54px; letter-spacing: -1.5px; }
+  .sec { padding: 104px 0; }
+  .sec-sm { padding: 76px 0; }
+  .pos-grid, .lim-grid { grid-template-columns: 1fr; }
+  .proc-item {
+    grid-template-columns: 1fr; gap: 16px;
+    padding: 44px 32px;
+  }
   .tl { grid-template-columns: 1fr; }
-  .why-grid, .who-grid { grid-template-columns: 1fr; gap: 52px; }
-  .who-q { position: static; font-size: 28px; }
-  .temo-item { padding: 44px 32px; }
+  .why-grid, .who-grid { grid-template-columns: 1fr; gap: 56px; }
+  .who-sticky { position: static; }
+  .temo-item { padding: 48px 36px; }
+  .temo-item::before { font-size: 80px; left: 28px; }
+  .cite { padding: 48px 36px; }
+  .ben-item { grid-template-columns: 40px 1fr; padding: 28px 28px; }
   .foot-in { flex-direction: column; gap: 16px; text-align: center; }
   .foot-r { text-align: center; }
-  .cta-title { font-size: 52px; }
-  .cite { padding: 44px 36px; }
-  .ben-item { grid-template-columns: 36px 1fr; padding: 28px 28px; }
-  .temoignages { padding: 96px 0; }
+  .cta-title { font-size: 56px; letter-spacing: -2px; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 44px; }
+  .sec { padding: 80px 0; }
+  .temo-item { padding: 40px 28px; }
+  .proc-item { padding: 36px 24px; }
+  .pos-col { padding: 44px 32px; }
+  .lim-col { padding: 44px 32px; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <div class="nav-in">
     <div class="nav-logo">Structure</div>
-    <a href="#diagnostic" class="nav-link">Faire un diagnostic</a>
+    <a href="#diagnostic" class="nav-cta">Faire un diagnostic</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-glow"></div>
+  <div class="hero-orb"></div>
   <div class="w">
-    <div class="h-label rise">Accompagnement structurant</div>
-    <h1 class="h-title rise d1">
-      Reprendre<br>le contrôle<br>de sa vie —<br><em>concrètement.</em>
-    </h1>
-    <p class="h-main rise d2">
-      Ce que tu ne tiens pas seul<br>devient tenable avec un cadre.
-    </p>
-    <p class="h-human rise d3">
-      Tu n'as pas besoin d'être parfait.
-      <strong>Tu as besoin d'un système stable qui tient quand toi tu lâches.</strong>
-    </p>
-    <a href="#diagnostic" class="btn rise d4">Faire un diagnostic <span>→</span></a>
-    <p class="h-note rise d4">Appel de 60 à 90 min. Gratuit. Sans engagement.</p>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Accompagnement structurant</div>
+      <h1 class="hero-title">
+        Reprendre<br>
+        le contrôle<br>
+        de sa vie —<br>
+        <em>concrètement.</em>
+      </h1>
+      <div class="hero-body">
+        <p class="hero-main">
+          Ce que tu ne tiens pas seul<br>
+          devient tenable avec un soutien structuré.
+        </p>
+        <p class="hero-human">
+          Tu n'as pas besoin d'être parfait.
+          <strong>Tu as besoin d'un système stable qui tient quand toi tu lâches.</strong>
+        </p>
+        <a href="#diagnostic" class="btn">Faire un diagnostic <span>→</span></a>
+        <p class="hero-note">Appel de 60 à 90 min. Gratuit. Sans engagement.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -624,26 +709,26 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- IDENTIFICATION -->
 <div class="sec">
   <div class="wm">
-    <div class="lbl">Le constat</div>
+    <div class="lbl reveal">Le constat</div>
     <div class="ident">
-      <div class="id-line">
+      <div class="id-line reveal reveal-d1">
         Tu fonctionnes.<br>
         Mais pas comme tu le devrais.
       </div>
-      <div class="id-line">
+      <div class="id-line reveal reveal-d2">
         Tu sais ce qu'il faudrait faire.<br>
         Mais tu ne le fais pas vraiment.<br>
         Ou pas longtemps.
       </div>
-      <div class="id-line">
+      <div class="id-line reveal reveal-d3">
         Tu avances, puis tu rechutes.<br>
         Tu recommences.<br>
         Tu t'épuises.
       </div>
-      <div class="id-key">
+      <div class="id-key reveal reveal-d4">
         Ce n'est pas un problème de motivation.<br>
         C'est un problème de structure.
-        <p class="id-relief">Tu peux enfin arrêter de porter ça seul.</p>
+        <p class="id-breath">Tu peux enfin arrêter de porter ça seul.</p>
       </div>
     </div>
   </div>
@@ -651,10 +736,10 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 
 <!-- INTERLUDE -->
 <div class="interlude">
-  <div class="wm">
-    <p class="inter-text">
+  <div class="interlude-inner">
+    <p class="interlude-text reveal">
       Le chaos épuise.<br>
-      <strong>Un cadre stable change plus que la motivation.</strong>
+      <strong>Un environnement stable change plus que la motivation.</strong>
     </p>
   </div>
 </div>
@@ -662,18 +747,18 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- POSITIONNEMENT -->
 <div class="sec">
   <div class="w">
-    <div class="lbl sage">Ce qu'est STRUCTURE</div>
-    <h2>Ni coaching.<br>Ni thérapie.<br><em>Un cadre.</em></h2>
-    <p class="intro">
+    <div class="lbl sage reveal">Ce qu'est STRUCTURE</div>
+    <h2 class="reveal reveal-d1">Ni coaching.<br>Ni thérapie.<br><em>Un espace.</em></h2>
+    <p class="intro reveal reveal-d2">
       Un cadre humain de stabilisation personnelle.<br>
-      Construit sur ta réalité — pas sur un programme générique.
+      Construit sur ta réalité — progressif, adaptatif, sans jugement.
     </p>
-    <div class="pos">
+    <div class="pos-grid reveal reveal-d3">
       <div class="pos-col">
         <div class="pos-head muted">Ce que tu trouveras ailleurs</div>
         <ul class="pos-list no">
           <li>Des séances pour parler de tes problèmes</li>
-          <li>Des outils à appliquer seul, sans suivi</li>
+          <li>Des outils à appliquer seul, sans suivi réel</li>
           <li>De la motivation artificielle qui s'évapore</li>
           <li>Quelqu'un qui valide tes choix pour te rassurer</li>
           <li>Des programmes à regarder sans jamais appliquer</li>
@@ -683,14 +768,14 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
         <div class="pos-head sage">Ce que tu trouveras ici</div>
         <ul class="pos-list yes">
           <li>Un diagnostic précis de ce qui bloque réellement</li>
-          <li>Un cadre structurant adapté à ta réalité</li>
-          <li>Un soutien structuré avec accountability véritable</li>
-          <li>Une présence qui maintient le cadre quand tu décroches</li>
-          <li>Une progression construite à ton rythme</li>
+          <li>Une structure adaptée à ta réalité, construite avec toi</li>
+          <li>Un soutien continu avec une accountability véritable</li>
+          <li>Une présence qui maintient la continuité quand tu décroches</li>
+          <li>Une progression construite à ton rythme, sans pression</li>
         </ul>
       </div>
     </div>
-    <div class="cite">
+    <div class="cite reveal">
       <p class="cite-t">
         Tu ne paies pas pour être écouté.<br>
         Tu paies pour que <strong>la distance entre ce que tu veux faire et ce que tu fais réellement</strong> se réduise — progressivement, à ton rythme.
@@ -705,15 +790,15 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <div class="why">
   <div class="w">
     <div class="why-grid">
-      <div>
-        <div class="lbl sage">Pourquoi ça fonctionne</div>
-        <h2>Ce que les<br>autres approches<br><em>manquent.</em></h2>
+      <div class="why-left">
+        <div class="lbl sage reveal">Pourquoi ça fonctionne</div>
+        <h2 class="reveal reveal-d1">Ce que les<br>autres approches<br><em>manquent.</em></h2>
       </div>
       <div class="why-body">
-        <p>Parce que le problème n'est pas uniquement ce que tu sais.</p>
-        <p>Le problème est ce que tu arrives réellement à tenir quand la fatigue, le chaos ou les habitudes reprennent le dessus.</p>
-        <p><strong>STRUCTURE agit précisément à cet endroit.</strong></p>
-        <p>Pas en te donnant plus d'information. En construisant un cadre externe stable — qui tient quand toi tu lâches, qui s'adapte quand ta réalité change, et qui te ramène à ce que tu as décidé de faire.</p>
+        <p class="reveal">Parce que le problème n'est pas uniquement ce que tu sais.</p>
+        <p class="reveal reveal-d1">Le problème est ce que tu arrives réellement à tenir quand la fatigue, le chaos ou les anciennes habitudes reprennent le dessus.</p>
+        <p class="reveal reveal-d2"><strong>STRUCTURE agit précisément à cet endroit.</strong></p>
+        <p class="reveal reveal-d3">Pas en te donnant plus d'information. En construisant un environnement stable autour de toi — qui tient quand toi tu lâches, qui s'adapte quand ta réalité change, et qui te ramène doucement à ce que tu as décidé de faire.</p>
       </div>
     </div>
   </div>
@@ -724,24 +809,24 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- BÉNÉFICES -->
 <div class="sec">
   <div class="w">
-    <div class="lbl sage">Ce que tu retrouves progressivement</div>
-    <h2>L'état intérieur<br><em>que tu cherches.</em></h2>
-    <p class="intro">
-      Les routines et les protocoles ne sont pas la finalité.<br>
+    <div class="lbl sage reveal">Ce que tu retrouves progressivement</div>
+    <h2 class="reveal reveal-d1">L'état intérieur<br><em>que tu cherches.</em></h2>
+    <p class="intro reveal reveal-d2">
+      Les protocoles ne sont pas la finalité.<br>
       Ce qui compte, c'est ce que tu retrouves de l'autre côté.
     </p>
-    <ul class="ben">
+    <ul class="ben-list reveal reveal-d3">
       <li class="ben-item">
         <span class="ben-n">01</span>
         <span class="ben-t"><strong>Des journées plus claires.</strong> Savoir quoi faire, dans quel ordre, sans t'épuiser à y penser.</span>
       </li>
       <li class="ben-item">
         <span class="ben-n">02</span>
-        <span class="ben-t"><strong>Une énergie plus stable.</strong> Le désordre chronique épuise. Quand la structure tient, l'énergie remonte naturellement.</span>
+        <span class="ben-t"><strong>Une énergie plus stable.</strong> Le désordre chronique épuise. Quand la continuité s'installe, l'énergie remonte naturellement.</span>
       </li>
       <li class="ben-item">
         <span class="ben-n">03</span>
-        <span class="ben-t"><strong>Moins de comportements que tu regrettes.</strong> Comprendre les déclencheurs, les nommer, les travailler dans la durée.</span>
+        <span class="ben-t"><strong>Moins de comportements que tu regrettes.</strong> Comprendre les déclencheurs, les nommer, les travailler dans la durée — sans brutalité.</span>
       </li>
       <li class="ben-item">
         <span class="ben-n">04</span>
@@ -753,10 +838,10 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
       </li>
       <li class="ben-item">
         <span class="ben-n">06</span>
-        <span class="ben-t"><strong>Sortir du mode survie.</strong> Arrêter de subir les journées. Commencer à les construire — avec un cadre qui tient.</span>
+        <span class="ben-t"><strong>Sortir du mode survie.</strong> Arrêter de subir les journées. Commencer à les construire — avec un repère qui tient quand la motivation n'est pas là.</span>
       </li>
     </ul>
-    <p class="ben-foot">Pas parfait. Stable.<br>Et surtout, durable.</p>
+    <p class="ben-foot reveal">Pas parfait. Stable.<br>Et surtout, durable.</p>
   </div>
 </div>
 
@@ -765,16 +850,16 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- PROCESS -->
 <div class="sec">
   <div class="w">
-    <div class="lbl">Comment ça fonctionne</div>
-    <h2>Un cadre simple.<br><em>Une progression réelle.</em></h2>
-    <p class="intro">
+    <div class="lbl reveal">Comment ça fonctionne</div>
+    <h2 class="reveal reveal-d1">Un espace simple.<br><em>Une progression réelle.</em></h2>
+    <p class="intro reveal reveal-d2">
       L'intensité s'adapte progressivement à ta réalité.<br>
       Elle n'est jamais imposée d'emblée.
     </p>
-    <div class="proc">
+    <div class="proc reveal reveal-d3">
       <div class="proc-item">
         <div>
-          <div class="proc-n">Phase 01</div>
+          <div class="proc-tag">Phase 01</div>
           <div class="proc-period">Session initiale</div>
         </div>
         <div>
@@ -790,12 +875,12 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
       </div>
       <div class="proc-item">
         <div>
-          <div class="proc-n">Phase 02</div>
+          <div class="proc-tag">Phase 02</div>
           <div class="proc-period">Semaines 1 à 4</div>
         </div>
         <div>
           <div class="proc-name">Structuration</div>
-          <div class="proc-desc">Mise en place d'un cadre adapté à ta réalité. Progressif, ajustable — construit avec toi, pas imposé sur toi.</div>
+          <div class="proc-desc">Mise en place d'une stabilité adaptée à ta réalité. Progressive, ajustable — construite avec toi, pas imposée sur toi.</div>
           <ul class="proc-pts">
             <li>Règles structurantes simples et réalistes</li>
             <li>Routine fonctionnelle adaptée à ta vie</li>
@@ -806,31 +891,31 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
       </div>
       <div class="proc-item">
         <div>
-          <div class="proc-n">Phase 03</div>
+          <div class="proc-tag">Phase 03</div>
           <div class="proc-period">Si nécessaire</div>
         </div>
         <div>
           <div class="proc-name">Renforcement</div>
-          <div class="proc-desc">Stabiliser ce que tu n'arrivais pas à tenir. Activé uniquement si ta situation le requiert.</div>
+          <div class="proc-desc">Consolider ce que tu n'arrivais pas à tenir. Activé uniquement si ta situation le requiert.</div>
           <ul class="proc-pts">
             <li>Suivi renforcé, 2 visios par semaine</li>
             <li>Travail approfondi sur les comportements résistants</li>
-            <li>Adaptation continue du cadre</li>
+            <li>Adaptation continue de l'environnement</li>
           </ul>
         </div>
       </div>
       <div class="proc-item">
         <div>
-          <div class="proc-n">Phase 04</div>
+          <div class="proc-tag">Phase 04</div>
           <div class="proc-period">Option avancée</div>
         </div>
         <div>
           <div class="proc-name">Intervention terrain</div>
-          <div class="proc-desc">Intervenir directement dans l'environnement réel lorsque certaines choses ne peuvent pas se corriger à distance.</div>
+          <div class="proc-desc">Intervenir directement dans l'environnement réel lorsque certaines choses ne peuvent pas se corriger à distance. Toujours avec consentement explicite.</div>
           <ul class="proc-pts">
             <li>Intervention ponctuelle et ciblée</li>
             <li>Dans l'environnement de vie réel</li>
-            <li>Toujours avec consentement explicite — France & Belgique</li>
+            <li>France & Belgique</li>
           </ul>
         </div>
       </div>
@@ -843,16 +928,16 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- TIMELINE -->
 <div class="sec">
   <div class="w">
-    <div class="lbl">Concrètement, ce que tu observes</div>
-    <h2>Semaine<br><em>après semaine.</em></h2>
-    <p class="intro">Pas des promesses. Des évolutions observables — dans les comportements, dans le quotidien.</p>
-    <div class="tl">
+    <div class="lbl reveal">Concrètement, ce que tu observes</div>
+    <h2 class="reveal reveal-d1">Semaine<br><em>après semaine.</em></h2>
+    <p class="intro reveal reveal-d2">Pas des promesses. Des évolutions observables — dans les comportements, dans le quotidien, dans la façon de tenir.</p>
+    <div class="tl reveal reveal-d3">
       <div class="tl-col">
         <div class="tl-period">Semaines 1 — 2</div>
         <div class="tl-title">Reprise de contrôle initiale</div>
         <ul class="tl-list">
           <li>Rythme de lever stabilisé</li>
-          <li>Premières règles structurantes tenues</li>
+          <li>Premiers repères structurants tenus</li>
           <li>Reporting quotidien mis en place</li>
           <li>Déclencheurs identifiés et nommés</li>
         </ul>
@@ -871,7 +956,7 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
         <div class="tl-period">Semaine 6 et au-delà</div>
         <div class="tl-title">Autonomie progressive</div>
         <ul class="tl-list">
-          <li>Cadre tenu sans rappel externe</li>
+          <li>Continuité tenue sans rappel externe</li>
           <li>Comportements plus solides et constants</li>
           <li>Stabilité construite dans la durée</li>
           <li>Plan d'autonomie établi pour la suite</li>
@@ -884,28 +969,28 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <hr class="sep">
 
 <!-- TÉMOIGNAGES -->
-<div class="temoignages">
+<div class="sec">
   <div class="w">
-    <div class="lbl sage">Ce qu'ils en disent</div>
-    <h2>Des personnes<br><em>comme toi.</em></h2>
-    <p class="intro">
+    <div class="lbl sage reveal">Ce qu'ils en disent</div>
+    <h2 class="reveal reveal-d1">Des personnes<br><em>comme toi.</em></h2>
+    <p class="intro reveal reveal-d2">
       Pas des transformations spectaculaires.<br>
       Des stabilisations réelles.
     </p>
-    <div class="temo-grid">
-      <div class="temo-item">
+    <div class="temo-list">
+      <div class="temo-item reveal">
         <p class="temo-text">
           "Je pensais avoir un problème de motivation. En réalité, j'étais simplement incapable de tenir seul dans la durée. Pour la première fois depuis longtemps, mes journées ont commencé à devenir plus stables, plus prévisibles. Pas parfaites. Mais enfin tenables."
         </p>
         <div class="temo-attr">Homme, 34 ans</div>
       </div>
-      <div class="temo-item">
+      <div class="temo-item reveal reveal-d1">
         <p class="temo-text">
           "Ce qui m'a marqué, ce n'est pas l'intensité du système. C'est le calme qu'il a remis dans mon quotidien. Moins de chaos, moins d'épuisement mental, plus de clarté. J'ai recommencé à tenir des choses simples que je n'arrivais plus à maintenir."
         </p>
         <div class="temo-attr">Femme, 29 ans</div>
       </div>
-      <div class="temo-item">
+      <div class="temo-item reveal reveal-d2">
         <p class="temo-text">
           "J'avais déjà essayé énormément de choses avant. Motivation, routines, programmes… rien ne tenait vraiment. Ici, je n'ai pas eu l'impression d'être jugé ou forcé. Juste accompagné dans un cadre suffisamment stable pour arrêter de rechuter constamment."
         </p>
@@ -920,21 +1005,22 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- QUI JE SUIS -->
 <div class="sec">
   <div class="w">
-    <div class="lbl">Qui je suis</div>
+    <div class="lbl reveal">Qui je suis</div>
     <div class="who-grid">
-      <div class="who-q">
-        "J'ai vu ce que donne l'absence de cadre.<br>Et j'ai vu ce que ça change quand un cadre tient."
+      <div class="who-sticky">
+        <p class="who-q reveal">
+          "J'ai vu ce que donne<br>l'absence de repères.<br>Et j'ai vu ce que ça change<br>quand un environnement<br>stable se construit."
+        </p>
       </div>
       <div class="who-body">
-        <p>Ce système n'est pas théorique. Il vient d'une réalité vécue — celle de comprendre de l'intérieur ce que coûte vraiment le désordre chronique, et de trouver progressivement ce qui change réellement les choses.</p>
-        <p>Ce que j'ai compris : on ne manque pas de volonté. On manque de structure. La volonté seule ne tient pas quand rien ne la soutient.</p>
-        <p>J'ai écarté ce qui ne tient pas :</p>
-        <ul class="who-exclu">
+        <p class="reveal">Ce système n'est pas théorique. Il vient d'une réalité vécue — celle de comprendre de l'intérieur ce que coûte vraiment le désordre chronique, et de trouver progressivement ce qui change réellement les choses.</p>
+        <p class="reveal reveal-d1">Ce que j'ai compris : on ne manque pas de volonté. On manque de structure. La volonté seule ne tient pas quand rien ne la soutient dans le temps.</p>
+        <ul class="who-exclu reveal reveal-d2">
           <li>la motivation vide</li>
           <li>les solutions rapides</li>
           <li>les approches qui ne durent pas</li>
         </ul>
-        <p>Ce que je propose ici est simple : <strong>remettre de la stabilité là où il n'y en a plus.</strong> Pas parfaitement. Réellement. À ton rythme.</p>
+        <p class="reveal reveal-d3">Ce que je propose ici est simple : <strong>remettre de la stabilité là où il n'y en a plus.</strong> Pas parfaitement. Réellement. À ton rythme, sans jugement.</p>
       </div>
     </div>
   </div>
@@ -945,18 +1031,18 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 <!-- LIMITES -->
 <div class="sec-sm">
   <div class="w">
-    <div class="lbl">Transparence</div>
-    <h2>Ce que STRUCTURE<br><em>est et n'est pas.</em></h2>
-    <p class="intro">La clarté sur les limites est le premier signe du sérieux d'un service.</p>
-    <div class="lim">
+    <div class="lbl reveal">Transparence</div>
+    <h2 class="reveal reveal-d1">Ce que STRUCTURE<br><em>est et n'est pas.</em></h2>
+    <p class="intro reveal reveal-d2">La clarté sur les limites est le premier signe du sérieux d'un espace.</p>
+    <div class="lim-grid reveal reveal-d3">
       <div class="lim-col">
         <div class="lim-head sage">Ce que c'est</div>
         <ul class="lim-list yes">
-          <li>Un cadre humain de stabilisation personnelle</li>
+          <li>Un espace premium de stabilisation humaine</li>
           <li>Un accompagnement structurant non médical</li>
-          <li>Un système qui s'adapte progressivement à ta réalité</li>
+          <li>Un système progressif qui s'adapte à ta réalité</li>
           <li>Un soutien structuré qui construit ton autonomie</li>
-          <li>Une progression construite à ton rythme, sans jugement</li>
+          <li>Une progression à ton rythme, sans jugement</li>
         </ul>
       </div>
       <div class="lim-col shade">
@@ -964,9 +1050,9 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
         <ul class="lim-list no">
           <li>Une solution miracle ou un raccourci</li>
           <li>Un traitement médical ou une thérapie</li>
-          <li>Un programme passif ou confortable</li>
+          <li>Un programme passif ou sans engagement</li>
           <li>Une source de motivation artificielle</li>
-          <li>Un accompagnement adapté aux crises médicales actives</li>
+          <li>Un accompagnement pour les crises médicales actives</li>
         </ul>
       </div>
     </div>
@@ -975,22 +1061,23 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
 
 <!-- CTA FINAL -->
 <div class="cta-s" id="diagnostic">
+  <div class="cta-orb"></div>
   <div class="ws">
-    <p class="cta-pre">
+    <p class="cta-pre reveal">
       Tu peux continuer comme avant.<br>
       Ou décider que cette fois, ça tient.
     </p>
-    <h2 class="cta-title">
+    <h2 class="cta-title reveal reveal-d1">
       Faire un<br><em>diagnostic.</em>
     </h2>
-    <p class="cta-body">
+    <p class="cta-body reveal reveal-d2">
       60 à 90 minutes pour comprendre précisément où tu en es.<br>
       Gratuit. Sans engagement avant cet échange.
     </p>
-    <a href="REMPLACER_PAR_LIEN_TYPEFORM" class="btn">
-      Faire un diagnostic <span>→</span>
-    </a>
-    <p class="cta-note">Formulaire de pré-qualification requis. Places limitées.</p>
+    <div class="reveal reveal-d3">
+      <a href="REMPLACER_PAR_LIEN_TYPEFORM" class="btn">Faire un diagnostic <span>→</span></a>
+      <p class="cta-note">Formulaire de pré-qualification requis. Places limitées.</p>
+    </div>
   </div>
 </div>
 
@@ -1013,5 +1100,30 @@ footer { padding: 44px 0; border-top: 1px solid var(--border); }
   </div>
 </footer>
 
+<script>
+// ── INTERSECTION OBSERVER — Scroll animations ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12,
+  rootMargin: '0px 0px -48px 0px'
+});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── NAV — Scroll opacity ──
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  nav.style.borderBottomColor = s > 60
+    ? 'rgba(34,34,34,1)'
+    : 'rgba(34,34,34,' + (s/60) + ')';
+}, { passive: true });
+</script>
 </body>
 </html>
